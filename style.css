@@ -1,4 +1,4 @@
-﻿/* Basic Reset */
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -162,15 +162,4 @@ button {
         background-color: #0056b3;
         transform: scale(1.02);
     }
-
-/* Footer Styles */
-.footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
 
