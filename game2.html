@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chasing Game</title>
+    <link rel="stylesheet" href="game2.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+    <!-- Sidebar Menu -->
+    <div id="sidebar" class="sidebar">
+        <h2>Menu</h2>
+        <a href="index.html" class="sidebar-button">Home</a>
+        <a href="game1.html" class="sidebar-button">Twilight Butterfly</a>
+        <a href="game2.html" class="sidebar-button">Catch The Enemy</a>
+
+        <select id="enemyStrength">
+            <option value="6">Weak</option>
+            <option value="10">Normal</option>
+            <option value="14">Strong</option>
+            <option value="20">Very Strong</option>
+        </select>
+
+        <select id="controlMethod">
+            <option>Keyboard</option>
+            <option>Mouse</option>
+        </select>
+    </div>
+
+    <!-- Menu Toggle Button -->
+    <button id="menu-toggle" class="menu-toggle">☰</button>
+
+    <div class="control-panel" style="display: none;">
+        <select id="modeSelect">
+            <option value="Friend">Friend</option>
+            <option value="Computer">Computer</option>
+        </select>
+        <button id="startButton">Start Game</button>
+    </div>
+
+    <div id="status"></div>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+    </div>
+
+    <script src="game2.js"></script> <!-- Link to the external JS file -->
+    <script>
+        // Sidebar toggle functionality
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

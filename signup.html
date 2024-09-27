@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - NextGenPC</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+    <header>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html" class="btn">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="signup">
+        <div class="container">
+            <h1>Create an Account</h1>
+            <form id="signup-form" method="post" action="https://script.google.com/macros/s/AKfycbxaWEoipuu3gl2W4mcsaWYBYgmk2inVyREq4VqJNPQN7vRaeHgSb9UOE6JLeZEIDpM3/exec">
+                <label for="contact">Contact:</label>
+                <input type="text" id="contact" name="contact" placeholder="Phone Number or E-mail" required>
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+
+        </div>
+    </section>
+
+    <script src="signup.js"></script>
+</body>
+</html>

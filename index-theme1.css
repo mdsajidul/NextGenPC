@@ -1,0 +1,322 @@
+/* index-theme1.css */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #00ff00; /* Text color */
+    background-color: #000; /* Background color of the body */
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, #1f1f1f, #3b3b3b);
+    padding: 20px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8); /* Stronger shadow effect */
+    position: relative;
+}
+
+    header nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f5f5f5;
+            font-size: 1.1em;
+            font-weight: 700;
+            transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+            text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8); /* Stronger text shadow */
+        }
+
+            nav ul li a:hover {
+                color: #d4af37;
+                transform: scale(1.05);
+            }
+
+/* Intro Section */
+.intro {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+    .intro h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        color: #f5f5f5;
+        text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8); /* Stronger text shadow */
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+        .intro h1:hover {
+            transform: scale(1.05);
+        }
+
+    .intro p {
+        font-size: 1.2em;
+        margin-bottom: 40px;
+        color: #f5f5f5;
+        text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8); /* Stronger text shadow */
+    }
+
+/* Button Container */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(145deg, #333333, #444444);
+    color: #f5f5f5;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8); /* Stronger button shadow */
+    font-size: 1.1em;
+    text-align: center;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+    .btn:hover {
+        background: linear-gradient(145deg, #444444, #333333);
+        transform: translateY(-4px);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 1); /* Stronger shadow on hover */
+        color: #d4af37; /* Highlighted text color */
+    }
+
+/* Home Button Styles */
+.home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00ff00; /* Home button background color */
+    color: #000; /* Home button text color */
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2px solid #00ff00; /* Border color */
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+    margin-top: 20px;
+    box-shadow: 0 8px 16px rgba(0, 255, 0, 0.6); /* Stronger shadow effect */
+}
+
+    .home-button:hover {
+        background-color: #000; /* Background color on hover */
+        color: #00ff00; /* Text color on hover */
+        transform: scale(1.05);
+        box-shadow: 0 12px 24px rgba(0, 255, 0, 0.8); /* Stronger shadow effect on hover */
+    }
+
+/* Form Container */
+h1 {
+    color: #f5f5f5;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    background: #222;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8); /* Stronger shadow effect */
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Form Elements */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #00ff00; /* Label color from the new theme */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    padding: 10px;
+    font-size: 16px;
+    width: calc(100% - 20px); /* Adjust width as needed */
+    border: 2px solid #00ff00; /* Border color */
+    border-radius: 5px;
+    background-color: #000; /* Background color */
+    color: #00ff00; /* Text color */
+    margin-bottom: 15px;
+    box-shadow: 0 8px 16px rgba(0, 255, 0, 0.5); /* Stronger shadow effect */
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+    input[type="text"]::placeholder,
+    input[type="password"]::placeholder,
+    input[type="email"]::placeholder {
+        color: #666; /* Placeholder color */
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="email"]:focus {
+        border-color: #00ff00; /* Border color on focus */
+        background-color: #111; /* Background color on focus */
+        outline: none;
+        box-shadow: 0 8px 16px rgba(0, 255, 0, 0.6); /* Stronger shadow effect on focus */
+    }
+
+/* Submit Button */
+button {
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid #00ff00; /* Border color */
+    border-radius: 5px;
+    background-color: #000; /* Background color */
+    color: #00ff00; /* Text color */
+    cursor: pointer;
+    margin: 5px;
+    width: auto;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 8px 16px rgba(0, 255, 0, 0.6); /* Stronger shadow effect */
+}
+
+    button:hover {
+        background-color: #00ff00; /* Background color on hover */
+        color: #000; /* Text color on hover */
+        transform: scale(1.05);
+        box-shadow: 0 12px 24px rgba(0, 255, 0, 0.8); /* Stronger shadow effect on hover */
+    }
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Sidebar Styles */
+.sidebar-left, .sidebar-right {
+    position: fixed;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #111; /* Sidebar background color */
+    border: 2px solid #00ff00; /* Sidebar border color */
+    box-shadow: 0 8px 16px rgba(0, 255, 0, 0.6); /* Stronger shadow effect */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: #00ff00; /* Sidebar text color */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+.sidebar-left {
+    left: 0; /* Position left sidebar */
+}
+
+.sidebar-right {
+    right: 0; /* Position right sidebar */
+    box-shadow: -5px 0 10px rgba(0, 255, 0, 0.6); /* Stronger shadow effect for right sidebar */
+}
+
+/* Bengali Mode Control Styles - Hidden by Default */
+.mode-control-bn {
+    display: none; /* Hide Bengali mode controls */
+}
+
+/* Placeholder Styles */
+::placeholder {
+    color: #888; /* Placeholder text color */
+    opacity: 1; /* Make sure placeholder is fully opaque */
+}
+
+/* Dropdown styling */
+select#theme-dropdown {
+    padding: 10px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    background-color: #333;
+    color: #eee;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    width: 200px; /* Adjust width as needed */
+    margin: 10px 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow effect */
+}
+
+    select#theme-dropdown:hover {
+        border-color: #3498db; /* Change border color on hover */
+    }
+
+    select#theme-dropdown:focus {
+        outline: none;
+        border-color: #3498db; /* Border color when focused */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow effect on focus */
+    }
+
+/* Index Page Styles */
+.index-header {
+    text-align: center;
+    padding: 20px;
+}
+
+    .index-header h1 {
+        font-size: 2.5em;
+        color: #f5f5f5;
+        text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8); /* Stronger text shadow */
+    }
+
+.index-content {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+    .index-content p {
+        font-size: 1.2em;
+        color: #f5f5f5;
+        margin-bottom: 20px;
+    }
+
+.index-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+    .index-buttons .btn {
+        padding: 10px 20px;
+        background: linear-gradient(145deg, #333333, #444444);
+        color: #f5f5f5;
+        border-radius: 8px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Stronger button shadow */
+    }
+
+        .index-buttons .btn:hover {
+            background: linear-gradient(145deg, #444444, #333333);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 1); /* Stronger shadow on hover */
+            color: #d4af37; /* Highlighted text color */
+        }

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGenPC - Computer Course</title>
+    <link rel="stylesheet" href="style.css"> <!-- Updated path -->
+    <script src="script.js" defer></script> <!-- Updated path -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <script defer src="theme-switcher.js"></script>
+    <link id="theme-link" rel="stylesheet" href="index-theme1.css"> <!-- Link to default theme -->
+
+</head>
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <header>
+        <div class="header">
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="profile.html" class="btn">Profile</a></li>
+                    <li><a href="login.html" class="btn">Log In</a></li>
+                    <li><a href="signup.html" class="btn">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="container">
+            <h1>Welcome to NextGenPC</h1>
+            <p>Discover the future of computer education with our premium courses.</p>
+            <div class="btn-container">
+                <a href="lesson1.html" class="btn">টাইপিং</a>
+                <a href="quiz-home.html" class="btn">কুইজ</a>
+                <a href="game-home.html" class="btn">গেমস</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load the saved theme from localStorage
+            const theme = localStorage.getItem('theme') || 'default-theme.css';
+            document.getElementById('theme-link').setAttribute('href', theme);
+
+            // Fetch notice from Google Apps Script
+            fetch('https://script.google.com/macros/s/AKfycbxeuJHos6kPwGxtMEXDzDiMGctTJWwYysRVe_XVfytg9XOvkF1IStTtWy0PoBkHWlmg/exec')
+                .then(response => response.text())
+                .then(notice => {
+                    document.getElementById('notice').textContent = notice;
+                })
+                .catch(error => {
+                    console.error('Error fetching notice:', error);
+                });
+        });
+    </script>
+    <script src="theme-switcher.js"></script> <!-- Include the JavaScript file -->
+</body>
+</html>

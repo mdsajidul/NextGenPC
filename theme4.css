@@ -1,0 +1,248 @@
+/* theme4.css - Minimal Dark Premium Theme with Strong Shadows */
+
+body {
+    background-color: #1f1f1f;
+    font-family: 'Arial', sans-serif;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #2c2c2c;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #444;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Strong shadow effect */
+}
+
+    header a {
+        color: #e0e0e0;
+        text-decoration: none;
+        font-weight: normal;
+        margin: 0 10px;
+        font-size: 16px;
+    }
+
+        header a:hover {
+            color: #50c878;
+        }
+
+/* Main Content */
+main {
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #292929;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Strong shadow effect */
+}
+
+/* Headings */
+h1 {
+    font-size: 2em;
+    color: #e0e0e0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Labels */
+label {
+    font-size: 14px;
+    color: #bbbbbb;
+}
+
+/* Inputs and Textareas */
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Shadow for input fields */
+}
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        border-color: #50c878;
+        outline: none;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow on focus */
+    }
+
+/* Buttons */
+button {
+    padding: 12px;
+    background-color: #444;
+    color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Strong shadow effect for buttons */
+}
+
+    button:hover {
+        background-color: #50c878;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8); /* Even stronger shadow on hover */
+    }
+
+/* Messages */
+#successMessage,
+#errorMessage {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#successMessage {
+    color: #50c878;
+}
+
+#errorMessage {
+    color: #f44336;
+}
+
+/* Dropdown Styling */
+.theme-selector select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Shadow for dropdown */
+}
+
+    .theme-selector select:focus {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow on focus */
+    }
+
+/* Minimal Media Queries */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+        box-shadow: none;
+        background-color: transparent;
+    }
+
+    form {
+        gap: 10px;
+    }
+}
+
+/* Premium Checkbox Style */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.premium-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Shadow for checkbox */
+}
+
+    .premium-checkbox:checked {
+        background-color: #4CAF50; /* Premium green for checked state */
+        box-shadow: 0 0 10px #4CAF50, 0 0 40px #4CAF50;
+    }
+
+        .premium-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 6px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+.premium-label {
+    margin-left: 10px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+/* Strong shadow effect for various elements */
+body.strong-shadow main,
+body.strong-shadow button,
+body.strong-shadow input[type="text"],
+body.strong-shadow input[type="password"],
+body.strong-shadow select {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Strong shadow effect */
+}
+
+    body.strong-shadow button:hover {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8); /* Stronger shadow on hover */
+    }
+
+    body.strong-shadow input[type="text"]:focus,
+    body.strong-shadow input[type="password"]:focus,
+    body.strong-shadow select:focus {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow on focus */
+    }
+/* Minimal Dark Theme Styles */
+body {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    background-color: #2c2c2c;
+    padding: 10px;
+    color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+    header h1 {
+        margin: 0;
+        text-align: center;
+    }
+
+main {
+    padding: 20px;
+}
+
+button {
+    background-color: #444;
+    color: #e0e0e0;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    button:hover {
+        background-color: #50c878;
+    }

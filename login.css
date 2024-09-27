@@ -1,0 +1,110 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #f5f5f5;
+    background: linear-gradient(to right, #0a0a0a, #333333);
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, #1f1f1f, #3b3b3b);
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Stronger shadow effect */
+    position: relative;
+}
+
+    header nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f5f5f5;
+            font-size: 1.1em;
+            font-weight: 700;
+            transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Stronger text shadow */
+        }
+
+            nav ul li a:hover {
+                color: #d4af37;
+                transform: scale(1.05);
+            }
+
+/* Login Section */
+.login {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+    .login h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #f5f5f5;
+        text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8); /* Stronger text shadow */
+    }
+
+    .login form {
+        display: inline-block;
+        text-align: left;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+        .login form label {
+            display: block;
+            margin-bottom: 10px;
+            color: #e0e0e0;
+        }
+
+        .login form input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background: #333;
+            color: #e0e0e0;
+        }
+
+        .login form button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(145deg, #333333, #444444);
+            color: #f5f5f5;
+            border: none; /* Removed border */
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Stronger button shadow */
+            font-size: 1.1em;
+            text-align: center;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+            .login form button:hover {
+                background: linear-gradient(145deg, #444444, #333333);
+                transform: translateY(-3px); /* Slight lift effect */
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8); /* Stronger shadow on hover */
+                color: #d4af37; /* Highlighted text color */
+            }

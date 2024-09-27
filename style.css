@@ -1,0 +1,176 @@
+﻿/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #f5f5f5;
+    background: linear-gradient(to right, #0a0a0a, #333333);
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, #1f1f1f, #3b3b3b);
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Stronger shadow effect */
+    position: relative;
+}
+
+.header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f5f5f5;
+            font-size: 1.1em;
+            font-weight: 700;
+            transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Stronger text shadow */
+        }
+
+            nav ul li a:hover {
+                color: #d4af37;
+                transform: scale(1.05);
+            }
+
+/* Intro Section */
+.intro {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+    .intro h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        color: #f5f5f5;
+        text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8); /* Stronger text shadow */
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+        .intro h1:hover {
+            transform: scale(1.05);
+        }
+
+    .intro p {
+        font-size: 1.2em;
+        margin-bottom: 40px;
+        color: #f5f5f5;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Stronger text shadow */
+    }
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(145deg, #333333, #444444);
+    color: #f5f5f5;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Stronger button shadow */
+    font-size: 1.1em;
+    text-align: center;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+    .btn:hover {
+        background: linear-gradient(145deg, #444444, #333333);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 1); /* Stronger shadow on hover */
+        color: #d4af37; /* Highlighted text color */
+    }
+
+/* Form Container */
+h1 {
+    color: #f5f5f5;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    background: #222;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Stronger shadow effect */
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Form Elements */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #f5f5f5;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 16px;
+    background: #333;
+    color: #f5f5f5;
+}
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        border-color: #d4af37;
+        outline: none;
+    }
+
+/* Submit Button */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+    button:hover {
+        background-color: #0056b3;
+        transform: scale(1.02);
+    }
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+

@@ -1,0 +1,345 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #f5f5f5;
+    background: linear-gradient(to right, #0a0a0a, #333333);
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, #1f1f1f, #3b3b3b);
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Stronger shadow effect */
+    position: relative;
+}
+
+.header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f5f5f5;
+            font-size: 1.1em;
+            font-weight: 700;
+            transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Stronger text shadow */
+        }
+
+            nav ul li a:hover {
+                color: #d4af37;
+                transform: scale(1.05);
+            }
+
+/* Intro Section */
+.intro {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+    .intro h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        color: #f5f5f5;
+        text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8); /* Stronger text shadow */
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+        .intro h1:hover {
+            transform: scale(1.05);
+        }
+
+    .intro p {
+        font-size: 1.2em;
+        margin-bottom: 40px;
+        color: #f5f5f5;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Stronger text shadow */
+    }
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(145deg, #333333, #444444);
+    color: #f5f5f5;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Stronger shadow effect */
+    font-size: 1.1em;
+    text-align: center;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+    .btn:hover {
+        background: linear-gradient(145deg, #444444, #333333);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 1); /* Stronger shadow effect on hover */
+        color: #d4af37;
+    }
+
+/* Form Container */
+h1 {
+    color: #f5f5f5;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    background: #222;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Stronger shadow effect */
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Form Elements */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #f5f5f5;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 16px;
+    background: #333;
+    color: #f5f5f5;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow effect */
+    transition: border-color 0.3s;
+}
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        border-color: #d4af37;
+        outline: none;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow effect on focus */
+    }
+
+/* Submit Button */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow effect */
+}
+
+    button:hover {
+        background-color: #0056b3;
+        transform: scale(1.02);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8); /* Stronger shadow effect on hover */
+    }
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Home Button styling */
+.home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1em;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow effect */
+}
+
+    .home-button:hover {
+        background: #0056b3;
+        transform: scale(1.05);
+    }
+
+button.home-btn {
+    width: 200px;
+    padding: 15px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 20px auto;
+    display: block;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow effect */
+}
+
+    button.home-btn:hover {
+        background-color: #45a049;
+        transform: scale(1.05);
+    }
+
+    button.home-btn:active {
+        background-color: #388e3c;
+    }
+
+/* Dropdown styling */
+select#theme-dropdown {
+    padding: 10px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    background-color: #333;
+    color: #eee;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    width: 200px;
+    margin: 10px 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow effect */
+}
+
+    select#theme-dropdown:hover {
+        border-color: #3498db;
+    }
+
+    select#theme-dropdown:focus {
+        outline: none;
+        border-color: #3498db;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow effect on focus */
+    }
+
+/* Premium Checkbox Style */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.premium-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+    .premium-checkbox:checked {
+        background-color: #4CAF50;
+        box-shadow: 0 0 10px #4CAF50, 0 0 40px #4CAF50;
+    }
+
+        .premium-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 6px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+.premium-label {
+    margin-left: 10px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+/* Strong shadow effect */
+body.strong-shadow main,
+body.strong-shadow button,
+body.strong-shadow input[type="text"],
+body.strong-shadow input[type="password"],
+body.strong-shadow select {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Consistent strong shadow effect */
+}
+
+    body.strong-shadow button:hover {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8); /* Stronger shadow effect on hover */
+    }
+
+    body.strong-shadow input[type="text"]:focus,
+    body.strong-shadow input[type="password"]:focus,
+    body.strong-shadow select:focus {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow effect on focus */
+    }
+
+/* Default Theme Styles */
+body {
+    background-color: #f0f0f0;
+    color: #000;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+    header h1 {
+        margin: 0;
+    }
+
+main {
+    padding: 20px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    button:hover {
+        background-color: #0056b3;
+    }

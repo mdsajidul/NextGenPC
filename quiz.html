@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Quiz App - Hacking Theme</title>
+    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Hamburger Menu -->
+    <div id="menu-toggle" class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+            });
+        });
+    </script>
+
+    <div id="sidebar" class="sidebar">
+        <!-- Add any menu items here -->
+        <a href="#home"></a>
+        <a></a>
+        <a></a>
+        <a></a>
+        <a></a>
+        <a></a>
+        <!-- স্বরবর্ণ Button -->
+        <button id="next-button" class="next-button">স্বরবর্ণ</button>
+        <button id="next-button" class="next-button">ব্যঞ্জনবর্ণ </button>
+    </div>
+
+    <div class="quiz-container">
+        <div id="timer">
+            Time: <span id="timer-count">20</span>s
+            <div id="timer-bar"></div>
+        </div>
+        <p id="score-board">Score: <span id="score">0</span> / <span id="total-questions">20</span></p>
+        <div id="question-container">
+            <p id="question-text"></p>
+            <div id="answer-buttons"></div>
+        </div>
+        <button id="next-button" class="hide" onclick="nextQuestion()"><b>Next</b></button>
+        <p id="glowing-text"><b>Created By Future Tech</b></p>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>

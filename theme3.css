@@ -1,0 +1,215 @@
+/* Sci-Fi Theme Styles */
+
+/* Global Styles */
+body {
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px;
+    color: #ffffff;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7); /* Enhanced shadow effect */
+    border-bottom: 2px solid #00ff99; /* Accent border */
+}
+
+    header .header {
+        text-align: center;
+    }
+
+    header nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+            header nav ul li a {
+                color: #00ff99;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 18px;
+                transition: color 0.3s;
+            }
+
+                header nav ul li a:hover {
+                    color: #ffffff;
+                }
+
+/* Main Content */
+main {
+    padding: 30px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7); /* Enhanced shadow effect */
+}
+
+/* Headings */
+h1 {
+    color: #00ff99;
+    text-shadow: 3px 3px 8px rgba(0, 255, 255, 0.6);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Form Elements */
+input,
+select,
+button {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #00ff99;
+    color: #e0e0e0;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Strong shadow effect */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    input::placeholder {
+        color: #a0a0a0;
+    }
+
+    input:focus,
+    select:focus {
+        border-color: #00cc7a; /* Lighter green on focus */
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7); /* Stronger shadow on focus */
+    }
+
+button {
+    background: #00ff99;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+    button:hover {
+        background: #00cc7a;
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.8); /* Enhanced shadow on hover */
+    }
+
+/* Theme Selector */
+.theme-selector {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Shadow effect */
+}
+
+    .theme-selector label {
+        color: #00ff99;
+        font-size: 18px;
+    }
+
+select {
+    background: rgba(0, 0, 0, 0.9);
+    color: #e0e0e0;
+    border: 2px solid #00ff99;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.6); /* Shadow effect */
+    border-top: 2px solid #00ff99; /* Accent border */
+}
+
+/* Premium Checkbox */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.premium-checkbox {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background-color: #000;
+    border: 2px solid #00ff99;
+    border-radius: 6px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, box-shadow 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Strong shadow effect */
+}
+
+    .premium-checkbox:checked {
+        background-color: #4CAF50; /* Premium green for checked state */
+        box-shadow: 0 0 10px #4CAF50, 0 0 40px #4CAF50;
+    }
+
+        .premium-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 9px;
+            width: 10px;
+            height: 16px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
+
+.premium-label {
+    margin-left: 12px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+}
+/* Sci-Fi Theme Styles */
+body {
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+    header h1 {
+        margin: 0;
+        text-align: center;
+    }
+
+main {
+    padding: 20px;
+}
+
+button {
+    background-color: #00ff99;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    button:hover {
+        background-color: #00cc7a;
+    }

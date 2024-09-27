@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Butterfly in Enchanted Forest</title>
+    <link rel="stylesheet" href="game1.css">
+</head>
+<body>
+    <!-- Sidebar Menu -->
+    <div id="sidebar" class="sidebar">
+        <a href="index.html" class="sidebar-button">Home</a>
+        <a href="game1.html" class="sidebar-button">Twilight Butterfly</a>
+        <a href="game2.html" class="sidebar-button">Catch The Enemy</a>
+    </div>
+
+    <!-- Menu Toggle Button -->
+    <button id="menu-toggle" class="menu-toggle">☰</button>
+
+    <!-- Starry Background -->
+    <div class="stars"></div>
+
+    <!-- Butterfly Animation -->
+    <div class="butterfly" id="butterfly">
+        <div class="wing left"></div>
+        <div class="wing right"></div>
+        <div class="body"></div>
+    </div>
+
+    <!-- Magical Orbs Floating -->
+    <div class="magical-orb" style="top: 30%; left: 10%; animation-delay: 0s;"></div>
+    <div class="magical-orb" style="top: 50%; left: 40%; animation-delay: 1s;"></div>
+    <div class="magical-orb" style="top: 20%; left: 70%; animation-delay: 0.5s;"></div>
+    <div class="magical-orb" style="top: 60%; left: 20%; animation-delay: 1.5s;"></div>
+    <div class="magical-orb" style="top: 80%; left: 60%; animation-delay: 0.9s;"></div>
+    <div class="magical-orb" style="top: 10%; left: 30%; animation-delay: 1.4s;"></div>
+    <div class="magical-orb" style="top: 35%; left: 5%; animation-delay: 1.7s;"></div>
+
+
+    <!-- Magical Orbs Container -->
+    <div id="orbs-container"></div>
+
+    <script>
+        const orbCount = 20; // Total number of orbs
+        const container = document.getElementById('orbs-container'); // Container for orbs
+
+        for (let i = 0; i < orbCount; i++) {
+            const orb = document.createElement('div');
+            orb.className = 'magical-orb';
+
+            // Set random position within the viewport
+            const randomTop = Math.random() * 90; // Random top position
+            const randomLeft = Math.random() * 90; // Random left position
+
+            orb.style.top = randomTop + '%';
+            orb.style.left = randomLeft + '%';
+            orb.style.animationDelay = Math.random() * 2 + 's'; // Random animation delay
+
+            container.appendChild(orb);
+        }
+    </script>
+
+
+    <!-- JavaScript for interactivity -->
+    <script src="game1.js"></script>
+</body>
+</html>

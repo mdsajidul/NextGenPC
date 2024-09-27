@@ -1,0 +1,53 @@
+{
+  "name": "nextgenpc",
+  "version": "1.0.1",
+  "description": "Your app description",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.nextgenpc.nextgenpc",
+    "files": [
+      "dist/",
+      "main.js",
+      "Home/index.html",
+      "Entyping/lesson1.css",
+      "Entyping/lesson1.html",
+      "Entyping/lesson1.js",
+      "Home/script.js",
+      "Home/style.css",
+      "Quiz/quiz-home.html",
+      "Quiz/quiz.css",
+      "Quiz/quiz.html",
+      "Quiz/quiz.js",
+      "Signup/signup.html",
+      "Signup/signup.css",
+      "Signup/signup.js",
+      "Bntyping/bntyping.css",
+      "Bntyping/bntyping.html",
+      "Bntyping/bntyping.js",
+      "Bntyping/consonent.js",
+      "Profile/default.css",
+      "Profile/profile.css",
+      "Games/Game1/game1.html",
+      "Games/Game1/game1.js",
+      "Games/Game1/game1.css",
+      "Games/Game2/game2.html",
+      "Games/Game2/game2.js",
+      "Games/Game2/game2.css"
+    ],
+    "directories": {
+      "output": "release"
+    }
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "electron": "^32.1.1",
+    "electron-builder": "^25.0.5"
+  }
+}

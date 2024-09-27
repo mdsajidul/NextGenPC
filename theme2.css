@@ -1,0 +1,168 @@
+/* theme2.css - Technology Premium Theme */
+
+/* Base background and color scheme */
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Dark gradient for a techy feel */
+    color: #e0e0e0; /* Light text color for contrast */
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #1a1a1a; /* Dark header */
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #4caf50; /* Green tech accent */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Strong shadow effect */
+}
+
+    header h1 {
+        color: #ffffff;
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+/* Form Styles */
+form {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: #1c1f25; /* Darker form background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Strong shadow effect */
+}
+
+    form h1 {
+        text-align: center;
+        color: #ffffff;
+    }
+
+label {
+    font-size: 1.1rem;
+    color: #80cbc4; /* Tech green accent */
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #80cbc4; /* Green border */
+    border-radius: 5px;
+    background-color: #2d2f36;
+    color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Strong shadow effect */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    input[type="text"]::placeholder, input[type="password"]::placeholder {
+        color: #a0a0a0;
+    }
+
+    input[type="text"]:focus, input[type="password"]:focus {
+        border-color: #4caf50; /* Green border on focus */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow on focus */
+    }
+
+/* Home Button */
+button.home-btn {
+    width: 150px;
+    padding: 15px;
+    background-color: #4caf50; /* Tech green button */
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin: 20px auto;
+    display: block;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Strong shadow effect */
+}
+
+    button.home-btn:hover {
+        background-color: #45a049; /* Darker green on hover */
+        transform: scale(1.05); /* Slight scaling effect on hover */
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8); /* Stronger shadow on hover */
+    }
+
+    button.home-btn:active {
+        background-color: #388e3c; /* Darker green on active click */
+    }
+
+/* Theme Dropdown */
+.theme-selector {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+select#theme-dropdown {
+    padding: 10px;
+    border: 1px solid #4caf50;
+    border-radius: 5px;
+    background-color: #1c1f25;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 200px; /* Adjust width as needed */
+    margin: 10px 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Strong shadow effect */
+}
+
+    select#theme-dropdown:hover {
+        border-color: #3498db; /* Change border color on hover */
+    }
+
+    select#theme-dropdown:focus {
+        border-color: #3498db; /* Border color when focused */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow on focus */
+    }
+
+/* Premium Checkbox Style */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.premium-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, box-shadow 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Strong shadow effect */
+}
+
+    .premium-checkbox:checked {
+        background-color: #4CAF50; /* Premium green for checked state */
+        box-shadow: 0 0 10px #4CAF50, 0 0 40px #4CAF50;
+    }
+
+        .premium-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 6px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+.premium-label {
+    margin-left: 10px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}

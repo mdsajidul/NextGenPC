@@ -1,0 +1,214 @@
+﻿    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        color: #fff;
+        background: linear-gradient(to right, #0a0a0a, #333333);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .stars {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+    }
+
+        .stars::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            box-shadow: 50px 100px white, 100px 200px white, 150px 300px white, 200px 400px white, 250px 500px white, 300px 600px white, 350px 700px white, 400px 800px white, 450px 900px white, 500px 1000px white, 550px 1100px white, 600px 1200px white, 650px 1300px white, 700px 1400px white, 750px 1500px white, 800px 1600px white, 850px 1700px white, 900px 1800px white, 950px 1900px white, 1000px 2000px white, 1050px 2100px white, 1100px 2200px white, 1150px 2300px white, 1200px 2400px white, 1250px 2500px white, 1300px 2600px white, 1350px 2700px white, 1400px 2800px white, 1450px 2900px white, 1500px 3000px white, 1550px 3100px white, 1600px 3200px white, 1650px 3300px white, 1700px 3400px white, 1750px 3500px white;
+            animation: twinkling 10s infinite alternate;
+        }
+
+    @keyframes twinkling {
+        0% {
+            opacity: 0.3;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .butterfly {
+        position: absolute;
+        width: 8vw;
+        height: 8vw;
+        max-width: 100px;
+        max-height: 100px;
+        z-index: 1;
+    }
+
+    .wing {
+        position: absolute;
+        width: 8vw;
+        height: 8vw;
+        background-color: rgba(255, 105, 180, 0.8);
+        border-radius: 50%;
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.7), 0 0 40px rgba(255, 20, 147, 0.5);
+        animation: flap 0.5s infinite alternate ease-in-out;
+    }
+
+        .wing.left {
+            transform-origin: 100% 50%;
+            left: -50%;
+        }
+
+        .wing.right {
+            transform-origin: 0% 50%;
+            right: -50%;
+        }
+
+    .body {
+        position: absolute;
+        width: 2vw;
+        height: 6vw;
+        max-width: 20px;
+        max-height: 60px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        top: 20%;
+        left: 45%;
+    }
+
+    @keyframes flap {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(30deg);
+        }
+    }
+
+    .magical-orb {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: rgba(173, 216, 230, 0.9);
+        box-shadow: 0 0 15px rgba(173, 216, 230, 1);
+        animation: float 4s infinite alternate;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-20px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        background: rgba(34, 34, 34, 0.9);
+        color: #fff;
+        padding: 20px;
+        display: none;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+        .sidebar.active {
+            display: block;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #00ff00;
+            margin: 10px 0;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+            .sidebar a:hover {
+                color: #33ff33;
+            }
+
+    .sidebar-button {
+        display: block;
+        background: linear-gradient(145deg, #333333, #222222);
+        color: #00ff00;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 8px;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8), inset 0 0 6px rgba(0, 255, 0, 0.5);
+        font-size: 1.2em;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+        text-shadow: 0 0 6px rgba(0, 255, 0, 0.5);
+    }
+
+        .sidebar-button:hover {
+            background: linear-gradient(145deg, #444444, #333333);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 255, 0, 1), inset 0 0 10px rgba(0, 255, 0, 0.7);
+        }
+
+    .menu-toggle {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 15;
+    }
+
+
+    .magical-orb {
+        position: absolute;
+        width: 20px; /* Set a width */
+        height: 20px; /* Set a height */
+        border-radius: 50%; /* Make it round */
+        background: rgba(173, 216, 230, 0.9); /* Initial color */
+        box-shadow: 0 0 15px rgba(173, 216, 230, 1);
+        animation: bounce 4s infinite alternate, colorChange 5s infinite alternate;
+    }
+
+    @keyframes bounce {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-30px); /* Adjust bounce height */
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
