@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const textSample = document.getElementById('text-sample');
     const userInput = document.getElementById('user-input');
     const resultDisplay = document.getElementById('result');
