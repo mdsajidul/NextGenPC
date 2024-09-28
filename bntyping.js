@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const textSample = document.getElementById('text-sample');
     const userInput = document.getElementById('user-input');
     const resultDisplay = document.getElementById('result');
@@ -222,23 +222,7 @@
         }
     });
 
-    function checkUserInput() {
-        if (userInput.value === textSample.textContent) {
-            resultDisplay.textContent = 'Correct!';
-            if (!practiceCheckbox.checked) {
-                currentIndex = (currentIndex + 1) % getTextSamples().length;
-            }
-            updateTextSample();
-            userInput.value = '';
-        } else if (autoSkipChars.includes(userInput.value)) {
-            currentIndex = (currentIndex + 1) % benjanbarnaHaToAnuswar.length;
-            updateTextSample();
-            userInput.value = '';
-        } else if (userInput.value.length > textSample.textContent.length) {
-            resultDisplay.innerHTML = `<span style="color: red;">Mistyped! You Typed: ${userInput.value}</span>`;
-            userInput.value = '';
-        }
-    }
+    
 
     function getTextSamples() {
         switch (levelDropdown.value) {
@@ -269,4 +253,5 @@
     learnCheckbox.checked = true;
 
     updateTextSample();
+
 });
