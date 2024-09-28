@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NextGenPC - Bangla Typing</title>
-    <link rel="stylesheet" href="bntyping.css"> <!-- Use relative path -->
+    <link rel="stylesheet" href="../Bntyping/bntyping.css"> <!-- Use relative path -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -44,7 +44,7 @@
                             </optgroup>
                             <option value="juktabarna">যুক্তবর্ণ</option>
                             <option value="shobdo">শব্দ</option>
-                            <option value="bakko">বাক্য</option>
+                            <option value="bakko"></option>
                         </select>
                     </div>
                 </aside>
@@ -64,10 +64,10 @@
     </section>
 
     <!-- Include the necessary JavaScript files -->
-    <script src="consonent.js"></script> <!-- Link to consonent.js -->
-    <script src="bntyping.js"></script> <!-- Link to bntyping.js -->
-    <script src="checkboxes.js"></script> <!-- Link to checkboxes.js -->
-    <script src="word.js"></script> <!-- Link to word.js -->
+    <script src="C:\Users\Pedp4WPBX5105GRF0522\Desktop\NextGenPC\Bntyping\consonent.js"></script> <!-- Link to consonent.js -->
+    <script src="C:\Users\Pedp4WPBX5105GRF0522\Desktop\NextGenPC\Bntyping\bntyping.js"></script> <!-- Link to bntyping.js -->
+    <script src="../Bntyping/checkboxes.js"></script> <!-- Link to checkboxes.js -->
+    <script src="C:\Users\Pedp4WPBX5105GRF0522\Desktop\NextGenPC\Bntyping\word.js"></script> <!-- এখানে word.js -->
 
     <script>
         // Initialize variables
@@ -115,11 +115,14 @@
             updateWordSample(); // Update the sample text
         });
 
+        // Check user input and skip automatically if correct
         function checkUserInput() {
-            if (userInput.value === textSample.textContent) {
-                resultDisplay.textContent = 'Correct!';
-                userInput.value = ''; // Clear the input field
-                updateWordSample(); // Update the sample text for next input
+            const textToType = textSample.textContent;
+
+            // If user input matches the full text or auto-skip characters
+            if (userInput.value === textToType || autoSkipChars.includes(userInput.value.slice(-1))) {
+                resultDisplay.textContent = 'Correct! Skipping to the next character...';
+                skipButton.click();  // Programmatically trigger skip button click
             } else if (userInput.value.length > textSample.textContent.length) {
                 resultDisplay.innerHTML = `<span style="color: red;">Mistyped! You Typed: ${userInput.value}</span>`;
                 userInput.value = ''; // Clear the input field
@@ -142,7 +145,7 @@
             if (selectedLevel === 'shobdo') {
                 checkboxContainer.style.display = 'none'; // Hide checkboxes
             } else {
-                checkboxContainer.style.display = 'block'; // Show checkboxes
+                checkboxContainer.style.display = ''; // Show checkboxes
             }
         });
 
