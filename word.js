@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const textSample = document.getElementById('text-sample');
     const userInput = document.getElementById('user-input');
     const resultDisplay = document.getElementById('result');
@@ -6,6 +6,7 @@
     const practiceCheckbox = document.getElementById('practice-checkbox');
     const levelDropdown = document.getElementById('level-dropdown');
     const checkboxContainer = document.querySelector('.checkboxes'); // Ensure you have a container for the checkboxes
+    const typingToolTitle = document.getElementById('typing-tool-title'); // নতুন পরিবর্তন
 
     // Words array for "শব্দ" level
     const words = [
@@ -58,6 +59,7 @@
         // If "শব্দ" level is selected
         if (selectedLevel === 'shobdo') {
             checkboxContainer.style.display = 'none'; // Hide checkboxes
+            typingToolTitle.textContent = "Typing Practice Tool"; // "শব্দ" নির্বাচিত হলে নতুন টেক্সট দেখান
             if (practiceCheckbox.checked) {
                 textSample.textContent = words[Math.floor(Math.random() * words.length)];
             } else {
@@ -68,6 +70,7 @@
         // If "বাক্য" level is selected
         else if (selectedLevel === 'bakko') {
             checkboxContainer.style.display = 'block'; // Show checkboxes
+            typingToolTitle.textContent = "Typing Practice Tool"; // "শব্দ" নির্বাচিত হলে নতুন টেক্সট দেখান
             if (practiceCheckbox.checked) {
                 textSample.textContent = sentences[Math.floor(Math.random() * sentences.length)];
             } else {
