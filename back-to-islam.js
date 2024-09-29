@@ -1,4 +1,4 @@
-﻿// হাদিসগুলোর একটি তালিকা
+// হাদিসগুলোর একটি তালিকা
 const hadiths = [
     "প্রকৃত মুসলমান সেই, যার হাত ও মুখের অনিষ্ট থেকে অন্য মুসলমান নিরাপদ থাকে। (সহিহ বুখারী)",
     "তোমাদের মধ্যে সেই ব্যক্তি উত্তম, যে অন্যদের কল্যাণ করে। (সহিহ মুসলিম)",
@@ -76,6 +76,7 @@ document.getElementById("menuBar").addEventListener("click", function () {
 
 // পৃষ্ঠা লোড হলে Next button লুকানো
 document.getElementById("nextButton").style.display = "none"; // Initially hide the Next button
+
 // Function to change font size
 function changeFontSize(size) {
     document.body.style.fontSize = size + 'px';
