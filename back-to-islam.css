@@ -10,6 +10,7 @@ body {
     text-align: center;
     color: #ffffff; /* White text color */
     min-height: 100vh; /* Ensures the body is at least the height of the viewport */
+    margin: 0;
 }
 
 .container {
@@ -24,19 +25,19 @@ header {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 2.5rem; /* Slightly smaller on large screens */
     color: #f0f0f0; /* Light gray for the main heading */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Strong text shadow for the heading */
-    padding:10px;
+    padding: 10px;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 20px;
     color: #ffcc00; /* Golden yellow for the subheading */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Strong text shadow for the subheading */
-    margin-top:-2%;
-    padding:10px;
+    margin-top: -2%;
+    padding: 10px;
 }
 
 /* Button container for centering the Next button */
@@ -131,6 +132,36 @@ button {
     .menu-bar {
         display: flex; /* Show the menu bar in mobile view */
     }
+
+    h1 {
+        font-size: 2rem; /* Smaller font size for mobile */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Smaller subheading font size */
+    }
+
+    button {
+        font-size: 1.2rem;
+        padding: 12px 24px;
+        min-width: 150px; /* Adjust button width for mobile */
+        height: 50px; /* Adjust button height for mobile */
+    }
+
+    .sidebar {
+        width: 100%; /* Full width sidebar for mobile */
+        left: -100%; /* Hide sidebar off-screen on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .button-container {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+    }
+
+    button {
+        margin: 10px 0; /* Add top and bottom margin for stacked buttons */
+    }
 }
 
 /* Slider styling */
@@ -153,5 +184,5 @@ button {
     /* Adding a hover effect to enhance the floating appearance */
     #hadithText:hover, #duaText:hover {
         transform: translateY(-5px); /* Slightly lift up the text */
-        text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); /* Stronger shadow on hover */
+        text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); /* Stronger shadow on hover */
     }
