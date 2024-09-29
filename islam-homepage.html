@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Display</title>
+    <link rel="stylesheet" href="C:\Users\Pedp4WPBX5105GRF0522\Desktop\NextGenPC\Islamic\Home_Page\islam-homepage.css">
+</head>
+<body>
+    <header>
+        <h1>আপনার নামাজের কথা মনে আছে তো?</h1>
+        <h2>Select a Content Type</h2>
+        
+    </header>
+
+    <div class="container">
+        <div class="button-container">
+            <button id="hadithButton" onclick="location.href='file:///C:/Users/Pedp4WPBX5105GRF0522/Desktop/NextGenPC/Islamic/back-to-islam/back-to-islam.html';">
+                হাদিস ও দোয়া
+            </button>
+        </div>
+
+        <div class="content-section" id="quranSection">
+            <p id="quranText"></p>
+        </div>
+        <div class="content-section" id="hadithSection">
+            <p id="hadithText"></p>
+        </div>
+        <div class="content-section" id="duaSection">
+            <p id="duaText"></p>
+        </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <h2>Menu</h2>
+        <a href="#" id="hadithButton">হাদিস</a>
+        <a href="#" id="duaButton">দুয়া</a>
+        <div>
+            <label for="fontSizeSlider">ফন্ট সাইজ:</label>
+            <input type="range" id="fontSizeSlider" min="12" max="60" value="25">
+            <span id="fontSizeValue">16px</span>
+        </div>
+    </div>
+
+    <script src="islam-homepage.js"></script>
+</body>
+</html>
