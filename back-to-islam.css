@@ -27,6 +27,7 @@ h1 {
     font-size: 3rem;
     color: #f0f0f0; /* Light gray for the main heading */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Strong text shadow for the heading */
+    padding:10px;
 }
 
 h2 {
@@ -34,6 +35,8 @@ h2 {
     margin-bottom: 20px;
     color: #ffcc00; /* Golden yellow for the subheading */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Strong text shadow for the subheading */
+    margin-top:-2%;
+    padding:10px;
 }
 
 /* Button container for centering the Next button */
@@ -150,5 +153,5 @@ button {
     /* Adding a hover effect to enhance the floating appearance */
     #hadithText:hover, #duaText:hover {
         transform: translateY(-5px); /* Slightly lift up the text */
-        text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); /* Stronger shadow on hover */
+        text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); /* Stronger shadowÂ onÂ hoverÂ */
     }
