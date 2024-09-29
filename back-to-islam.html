@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Display</title>
+    <link rel="stylesheet" href="C:\Users\Pedp4WPBX5105GRF0522\Desktop\NextGenPC\Islamic\back-to-islam\back-to-islam.css">
+</head>
+<body>
+    <header>
+        <h1>Islamic Content</h1>
+        <h2>Select a Content Type</h2>
+        <div class="menu-bar" id="menuBar">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="button-container">
+            <button id="hadithButton">হাদিস</button>
+            <button id="duaButton">দুয়া</button>
+        </div>
+
+        <div class="content-section" id="quranSection">
+            <p id="quranText"></p>
+        </div>
+        <div class="content-section" id="hadithSection">
+            <p id="hadithText"></p>
+        </div>
+        <div class="content-section" id="duaSection">
+            <p id="duaText"></p>
+        </div>
+
+        <div class="button-container">
+            <button id="nextButton">পরবর্তী</button>
+        </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <h2>Menu</h2>
+        <a href="#" id="hadithButton">হাদিস</a>
+        <a href="#" id="duaButton">দুয়া</a>
+        <div>
+            <label for="fontSizeSlider">ফন্ট সাইজ:</label>
+            <input type="range" id="fontSizeSlider" min="12" max="60" value="25">
+            <span id="fontSizeValue">16px</span>
+        </div>
+    </div>
+
+    <script src="back-to-islam.js"></script>
+</body>
+</html>
