@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #0a0a0a, #333333);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #f5f5f5;
+            background: linear-gradient(to right, #0a0a0a, #333333);
+        }
+        .bmi-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+            .bmi-container h2 {
+                color: #4A90E2;
+                margin-bottom: 25px;
+                font-size: 28px;
+            }
+
+            .bmi-container input,
+            .bmi-container select {
+                width: 45%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border-radius: 8px;
+                border: 1px solid #d1d9e6;
+                background-color: #f0f4f8;
+                font-size: 16px;
+                color: #333;
+                outline: none;
+                transition: all 0.3s ease;
+            }
+
+                .bmi-container input:focus,
+                .bmi-container select:focus {
+                    border-color: #4A90E2;
+                }
+
+            .bmi-container button {
+                background-color: #4A90E2;
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                font-size: 16px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+                .bmi-container button:hover {
+                    background-color: #357ABD;
+                }
+
+            .bmi-container .result {
+                margin-top: 20px;
+                font-size: 22px;
+                font-weight: bold;
+                color: #333;
+            }
+
+                .bmi-container .result span {
+                    color: #4A90E2;
+                }
+
+            .bmi-container .category {
+                margin-top: 10px;
+                font-size: 18px;
+                color: #666;
+            }
+
+        .label-text {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bmi-container">
+        <h2>BMI Calculator</h2>
+
+        <div class="label-text">Enter your Weight (kg):</div>
+        <input type="number" id="weight" placeholder="Enter weight in kg">
+
+        <div class="label-text">Enter your Height:</div>
+        <select id="feet">
+            <option value="0">Feet</option>
+            <option value="4">4 feet</option>
+            <option value="5">5 feet</option>
+            <option value="6">6 feet</option>
+            <option value="7">7 feet</option>
+        </select>
+
+        <select id="inches">
+            <option value="0">Inches</option>
+            <option value="0">0 inches</option>
+            <option value="1">1 inch</option>
+            <option value="2">2 inches</option>
+            <option value="3">3 inches</option>
+            <option value="4">4 inches</option>
+            <option value="5">5 inches</option>
+            <option value="6">6 inches</option>
+            <option value="7">7 inches</option>
+            <option value="8">8 inches</option>
+            <option value="9">9 inches</option>
+            <option value="10">10 inches</option>
+            <option value="11">11 inches</option>
+        </select>
+
+        <button onclick="calculateBMI()">Calculate BMI</button>
+
+        <div class="result" id="result"></div>
+        <div class="category" id="category"></div>
+    </div>
+
+    <script>
+        function calculateBMI() {
+            let weight = parseFloat(document.getElementById('weight').value);
+            let feet = parseInt(document.getElementById('feet').value);
+            let inches = parseInt(document.getElementById('inches').value);
+
+            if (isNaN(weight) || weight <= 0 || feet < 0 || inches < 0) {
+                alert("Please enter valid weight, feet, and inches.");
+                return;
+            }
+
+            // Convert feet and inches to meters
+            let heightInMeters = ((feet * 12) + inches) * 0.0254;
+
+            // Calculate BMI
+            let bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+
+            // Display result
+            document.getElementById('result').innerHTML = `Your BMI is: <span>${bmi}</span>`;
+
+            // Determine BMI category
+            let category = "";
+            if (bmi < 18.5) {
+                category = "Underweight";
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                category = "Normal weight";
+            } else if (bmi >= 25 && bmi < 29.9) {
+                category = "Overweight";
+            } else {
+                category = "Obesity";
+            }
+
+            document.getElementById('category').innerHTML = `Category: ${category}`;
+        }
+    </script>
+
+</body>
+</html>
