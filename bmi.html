@@ -6,16 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>BMI Calculator</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #0a0a0a, #333333);
+        /* Basic Reset */
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #333;
+            box-sizing: border-box;
         }
 
         /* General Styles */
@@ -23,21 +18,26 @@
             font-family: 'Roboto', sans-serif;
             color: #f5f5f5;
             background: linear-gradient(to right, #0a0a0a, #333333);
+            margin: 0;
         }
+
         .bmi-container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
+            background: linear-gradient(to right, #0a0a0a, #333333);
+            padding: 5vw; /* Optional: You can adjust or remove padding if needed */
+            border-radius: 0; /* Remove border-radius if you want full screen */
+            box-shadow: none; /* Remove box shadow for a full-screen container */
+            width: 100vw; /* Full width of the viewport */
+            height: 100vh; /* Full height of the viewport */
             text-align: center;
+            margin: 0; /* No margin needed when taking up full screen */
+            overflow-y: auto; /* In case of overflow, make it scrollable */
         }
 
             .bmi-container h2 {
-                color: #4A90E2;
+                color: #f5f5f5;
                 margin-bottom: 25px;
                 font-size: 28px;
+                text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8);
             }
 
             .bmi-container input,
@@ -46,57 +46,75 @@
                 padding: 10px;
                 margin-bottom: 15px;
                 border-radius: 8px;
-                border: 1px solid #d1d9e6;
-                background-color: #f0f4f8;
+                border: 1px solid #444;
+                background-color: #333;
+                color: #f5f5f5;
                 font-size: 16px;
-                color: #333;
                 outline: none;
                 transition: all 0.3s ease;
             }
 
                 .bmi-container input:focus,
                 .bmi-container select:focus {
-                    border-color: #4A90E2;
+                    border-color: #d4af37;
                 }
 
-            .bmi-container button {
-                background-color: #4A90E2;
-                color: white;
-                border: none;
-                padding: 12px 20px;
-                font-size: 16px;
-                border-radius: 8px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
+        .btn {
+            display: inline-block;
+            padding: 10px 20px; /* Reduced padding for smaller button */
+            background: linear-gradient(145deg, #333333, #444444);
+            color: #f5f5f5;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Stronger button shadow */
+            font-size: 1em; /* Reduced font size */
+            text-align: center;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+            .btn:hover {
+                background: linear-gradient(145deg, #444444, #333333);
+                transform: translateY(-4px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 1); /* Stronger shadow on hover */
+                color: #d4af37; /* Highlighted text color */
             }
 
-                .bmi-container button:hover {
-                    background-color: #357ABD;
-                }
+        .bmi-container .result {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #d4af37;
+        }
 
-            .bmi-container .result {
-                margin-top: 20px;
-                font-size: 22px;
-                font-weight: bold;
-                color: #333;
-            }
+        .bmi-container .category {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #ccc;
+        }
 
-                .bmi-container .result span {
-                    color: #4A90E2;
-                }
-
-            .bmi-container .category {
-                margin-top: 10px;
-                font-size: 18px;
-                color: #666;
-            }
+        .error-message {
+            color: red; /* Red color for error messages */
+            margin-top: 10px;
+            font-size: 16px;
+        }
 
         .label-text {
             display: block;
             font-size: 16px;
             font-weight: bold;
-            color: #333;
+            color: #f5f5f5;
             margin-bottom: 10px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .bmi-container h2 {
+                font-size: 24px;
+            }
+
+            .bmi-container .btn {
+                font-size: 14px; /* Adjust font size for mobile */
+            }
         }
     </style>
 </head>
@@ -105,48 +123,85 @@
     <div class="bmi-container">
         <h2>BMI Calculator</h2>
 
-        <div class="label-text">Enter your Weight (kg):</div>
-        <input type="number" id="weight" placeholder="Enter weight in kg">
+        <div class="label-text">আপনার ওজন লিখুন (kg):</div>
+        <input type="text" id="weight" placeholder="ওজন কেজিতে লিখুন" oninput="checkWeightInput()">
 
-        <div class="label-text">Enter your Height:</div>
+        <div class="label-text">আপনার উচ্চতা লিখুন:</div>
         <select id="feet">
-            <option value="0">Feet</option>
-            <option value="4">4 feet</option>
-            <option value="5">5 feet</option>
-            <option value="6">6 feet</option>
-            <option value="7">7 feet</option>
+            <option value="0">ফুট</option>
+            <option value="0">0 ফুট</option>
+            <option value="1">1 ফুট</option>
+            <option value="2">2 ফুট</option>
+            <option value="3">3 ফুট</option>
+            <option value="4">4 ফুট</option>
+            <option value="5">5 ফুট</option>
+            <option value="6">6 ফুট</option>
+            <option value="7">7 ফুট</option>
+            <option value="8">8 ফুট</option>
         </select>
 
         <select id="inches">
-            <option value="0">Inches</option>
-            <option value="0">0 inches</option>
-            <option value="1">1 inch</option>
-            <option value="2">2 inches</option>
-            <option value="3">3 inches</option>
-            <option value="4">4 inches</option>
-            <option value="5">5 inches</option>
-            <option value="6">6 inches</option>
-            <option value="7">7 inches</option>
-            <option value="8">8 inches</option>
-            <option value="9">9 inches</option>
-            <option value="10">10 inches</option>
-            <option value="11">11 inches</option>
+            <option value="0">ইঞ্চি</option>
+            <option value="0">0 ইঞ্চি</option>
+            <option value="1">1 ইঞ্চি</option>
+            <option value="2">2 ইঞ্চি</option>
+            <option value="3">3 ইঞ্চি</option>
+            <option value="4">4 ইঞ্চি</option>
+            <option value="5">5 ইঞ্চি</option>
+            <option value="6">6 ইঞ্চি</option>
+            <option value="7">7 ইঞ্চি</option>
+            <option value="8">8 ইঞ্চি</option>
+            <option value="9">9 ইঞ্চি</option>
+            <option value="10">10 ইঞ্চি</option>
+            <option value="11">11 ইঞ্চি</option>
         </select>
 
-        <button onclick="calculateBMI()">Calculate BMI</button>
+        <button class="btn" onclick="calculateBMI()">BMI হিসাব করুন</button>
 
         <div class="result" id="result"></div>
         <div class="category" id="category"></div>
+        <div class="error-message" id="error-message"></div> <!-- Error message display -->
     </div>
 
+
     <script>
+        function checkWeightInput() {
+            const weightInput = document.getElementById('weight');
+            const weightValue = weightInput.value;
+
+            // Bengali numerals mapping to English
+            const bengaliToEnglish = {
+                '০': '0', '১': '1', '২': '2', '৩': '3', '৪': '4',
+                '৫': '5', '৬': '6', '৭': '7', '৮': '8', '৯': '9'
+            };
+
+            // Check if the input contains Bengali numerals
+            const containsBengaliNumerals = [...weightValue].some(char => bengaliToEnglish[char]);
+
+            if (containsBengaliNumerals) {
+                // Replace Bengali numerals with English numerals
+                let englishWeight = weightValue.split('').map(char => bengaliToEnglish[char] || char).join('');
+                weightInput.value = englishWeight;
+                // Alert removed
+            }
+        }
+
         function calculateBMI() {
             let weight = parseFloat(document.getElementById('weight').value);
             let feet = parseInt(document.getElementById('feet').value);
             let inches = parseInt(document.getElementById('inches').value);
 
+            // Clear previous error messages
+            document.getElementById('error-message').innerText = '';
+
             if (isNaN(weight) || weight <= 0 || feet < 0 || inches < 0) {
-                alert("Please enter valid weight, feet, and inches.");
+                document.getElementById('error-message').innerText = "দয়া করে বৈধ ওজন, ফুট এবং ইঞ্চি প্রবেশ করুন।";
+                return;
+            }
+
+            // Check if feet is 0, then inches must not be 0
+            if (feet === 0 && inches === 0) {
+                document.getElementById('error-message').innerText = "যদি ফুট 0 হয়, তাহলে ইঞ্চিও 0 হতে পারে না।";
                 return;
             }
 
@@ -156,23 +211,26 @@
             // Calculate BMI
             let bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
 
-            // Display result
-            document.getElementById('result').innerHTML = `Your BMI is: <span>${bmi}</span>`;
+            // Display the BMI result
+            document.getElementById('result').innerHTML = `আপনার BMI হল: <span>${bmi}</span>`;
 
-            // Determine BMI category
-            let category = "";
+            // Determine BMI category and recommendation
+            let categoryMessage = ""; // Merged message for category and recommendation
             if (bmi < 18.5) {
-                category = "Underweight";
+                categoryMessage = "<strong>ক্যাটাগরি: অল্প ওজন।</strong><br><strong>দয়া করে পুষ্টির মূল্যায়ন করুন এবং উচ্চ ক্যালোরিযুক্ত খাবারগুলি অন্তর্ভুক্ত করুন।</strong>";
             } else if (bmi >= 18.5 && bmi < 24.9) {
-                category = "Normal weight";
+                categoryMessage = "<strong>ক্যাটাগরি: স্বাভাবিক ওজন।</strong><br><strong>আপনার স্বাস্থ্য বজায় রাখতে একটি স্বাস্থ্যকর খাদ্য অনুসরণ করুন।</strong>";
             } else if (bmi >= 25 && bmi < 29.9) {
-                category = "Overweight";
+                categoryMessage = "<strong>ক্যাটাগরি: অতিরিক্ত ওজন।</strong><br><strong>ওজন ব্যবস্থাপনা পরিকল্পনার জন্য একটি স্বাস্থ্যসেবী পেশাদারের সাথে যোগাযোগ করুন।</strong>";
             } else {
-                category = "Obesity";
+                categoryMessage = "<strong>ক্যাটাগরি: মোটা।</strong><br><strong>একজন স্বাস্থ্যসেবা প্রদানকারীর সাথে পরামর্শ করুন এবং খাদ্য এবং ব্যায়ামের পরিকল্পনা তৈরি করুন।</strong>";
             }
 
-            document.getElementById('category').innerHTML = `Category: ${category}`;
+            // Display the merged category and recommendation with line break
+            document.getElementById('category').innerHTML = categoryMessage;
         }
+
+
     </script>
 
 </body>
