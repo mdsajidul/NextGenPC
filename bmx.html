@@ -1,0 +1,592 @@
+﻿<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ক্যালোরি ক্যালকুলেটর</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #f5f5f5;
+            background: linear-gradient(to right, #0a0a0a, #333333);
+            margin: 0;
+        }
+
+        .bmi-container {
+            background: linear-gradient(to right, #0a0a0a, #333333);
+            padding: 5vw;
+            border-radius: 0;
+            box-shadow: none;
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+            margin: 0;
+            overflow-y: auto;
+        }
+
+            .bmi-container h1 {
+                color: #f5f5f5;
+                margin-bottom: 25px;
+                font-size: 28px;
+                text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8);
+            }
+
+            .bmi-container input,
+            .bmi-container select {
+                width: 45%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border-radius: 8px;
+                border: 1px solid #444;
+                background-color: #333;
+                color: #f5f5f5;
+                font-size: 16px;
+                outline: none;
+                transition: all 0.3s ease;
+            }
+
+                .bmi-container input:focus,
+                .bmi-container select:focus {
+                    border-color: #d4af37;
+                }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(145deg, #333333, #444444);
+            color: #f5f5f5;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+            font-size: 1em;
+            text-align: center;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+            .btn:hover {
+                background: linear-gradient(145deg, #444444, #333333);
+                transform: translateY(-4px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 1);
+                color: #d4af37;
+            }
+
+        .bmi-container .result {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        .bmi-container .category {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .label-text {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            color: #f5f5f5;
+            margin-bottom: 10px;
+        }
+
+        .height-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+            .height-container select {
+                width: 150px;
+                padding: 10px;
+                font-size: 16px;
+            }
+
+        /* Popup Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #2a2a2a;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: white;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #444;
+            color: #f5f5f5;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #555;
+        }
+
+        tr:hover {
+            background-color: #666;
+        }
+
+        td {
+            color: #f5f5f5;
+            border-bottom: 1px solid #888;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .bmi-container h1 {
+                font-size: 24px;
+            }
+
+            .bmi-container .btn {
+                font-size: 14px;
+            }
+        }
+        /* Scrollbar Styles */
+        ::-webkit-scrollbar {
+            width: 12px; /* width for vertical scrollbar */
+            height: 12px; /* height for horizontal scrollbar */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #333333; /* Track color (matches background) */
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #444444; /* Thumb color (matches the general button hover background) */
+            border-radius: 10px;
+            border: 3px solid #333333; /* Makes the thumb smaller and gives a padding effect */
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background-color: #d4af37; /* Color when hovering over the scrollbar */
+            }
+
+        /* For Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #444444 #333333;
+        }
+
+            *::-webkit-scrollbar-corner {
+                background-color: #333333;
+            }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="bmi-container">
+        <h1>ক্যালোরি ক্যালকুলেটর</h1>
+
+        <label class="label-text" for="age">বয়স:</label>
+        <input type="text" id="age" placeholder="আপনার বয়স দিন" required>
+
+        <label class="label-text" for="gender">লিঙ্গ:</label>
+        <select id="gender">
+            <option value="male">পুরুষ</option>
+            <option value="female">মহিলা</option>
+        </select>
+
+        <label class="label-text">উচ্চতা:</label>
+
+        <div class="height-container">
+            <div>
+                <select id="heightFeet">
+                    <option value="0">0 ফুট</option>
+                    <option value="1">1 ফুট</option>
+                    <option value="2">2 ফুট</option>
+                    <option value="3">3 ফুট</option>
+                    <option value="4">4 ফুট</option>
+                    <option value="5">5 ফুট</option>
+                    <option value="6">6 ফুট</option>
+                    <option value="7">7 ফুট</option>
+                    <option value="8">8 ফুট</option>
+                </select>
+            </div>
+            <div>
+                <select id="heightInches">
+                    <option value="0">0 ইঞ্চি</option>
+                    <option value="1">1 ইঞ্চি</option>
+                    <option value="2">2 ইঞ্চি</option>
+                    <option value="3">3 ইঞ্চি</option>
+                    <option value="4">4 ইঞ্চি</option>
+                    <option value="5">5 ইঞ্চি</option>
+                    <option value="6">6 ইঞ্চি</option>
+                    <option value="7">7 ইঞ্চি</option>
+                    <option value="8">8 ইঞ্চি</option>
+                    <option value="9">9 ইঞ্চি</option>
+                    <option value="10">10 ইঞ্চি</option>
+                    <option value="11">11 ইঞ্চি</option>
+                </select>
+            </div>
+        </div>
+
+        <label class="label-text" for="weight">ওজন (কেজি):</label>
+        <input type="text" id="weight" placeholder="আপনার ওজন দিন" required>
+
+        <label class="label-text" for="activity">দৈনিক কার্যক্রমের স্তর:</label>
+        <select id="activity">
+            <option value="1.2">কোন কার্যক্রম নেই</option>
+            <option value="1.375">সামান্য কার্যক্রম</option>
+            <option value="1.55">মাঝারি কার্যক্রম</option>
+            <option value="1.725">কঠোর কার্যক্রম</option>
+            <option value="1.9">অত্যধিক কার্যক্রম</option>
+        </select>
+
+        <button class="btn" onclick="calculateCalories()">গণনা করুন</button>
+
+        <div class="result" id="result"></div>
+        <div class="category" id="category"></div>
+        <div class="error-message" id="error-message"></div>
+
+        <button class="btn" id="myBtn">ক্যালোরি তালিকা দেখুন</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>ক্যালোরি তালিকা</h2>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>খাবার</th>
+                            <th>পরিমাণ (গ্রাম)</th>
+                            <th>ক্যালরি</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ভাত (সিদ্ধ)</td>
+                            <td>100</td>
+                            <td>130</td>
+                        </tr>
+                        <tr>
+                            <td>ডাল (সিদ্ধ)</td>
+                            <td>100</td>
+                            <td>120</td>
+                        </tr>
+                        <tr>
+                            <td>আলু (সিদ্ধ)</td>
+                            <td>100</td>
+                            <td>77</td>
+                        </tr>
+                        <tr>
+                            <td>পটল (সিদ্ধ)</td>
+                            <td>100</td>
+                            <td>31</td>
+                        </tr>
+                        <tr>
+                            <td>বেগুন (সিদ্ধ)</td>
+                            <td>100</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>গাজর (সিদ্ধ)</td>
+                            <td>100</td>
+                            <td>41</td>
+                        </tr>
+                        <tr>
+                            <td>পালং শাক (সিদ্ধ)</td>
+                            <td>100</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>মুরগির মাংস</td>
+                            <td>100</td>
+                            <td>239</td>
+                        </tr>
+                        <tr>
+                            <td>গরুর মাংস</td>
+                            <td>100</td>
+                            <td>250</td>
+                        </tr>
+                        <tr>
+                            <td>মাছ (পোড়া)</td>
+                            <td>100</td>
+                            <td>200</td>
+                        </tr>
+                        <tr>
+                            <td>ডিম</td>
+                            <td>100</td>
+                            <td>155</td>
+                        </tr>
+                        <tr>
+                            <td>দই</td>
+                            <td>100</td>
+                            <td>61</td>
+                        </tr>
+                        <tr>
+                            <td>চিনি</td>
+                            <td>100</td>
+                            <td>387</td>
+                        </tr>
+                        <tr>
+                            <td>চিঁড়া</td>
+                            <td>100</td>
+                            <td>380</td>
+                        </tr>
+                        <tr>
+                            <td>সেমাই</td>
+                            <td>100</td>
+                            <td>160</td>
+                        </tr>
+                        <tr>
+                            <td>বিস্কুট</td>
+                            <td>100</td>
+                            <td>500</td>
+                        </tr>
+                        <tr>
+                            <td>পিঠা (ভাপা)</td>
+                            <td>100</td>
+                            <td>200</td>
+                        </tr>
+                        <tr>
+                            <td>চা (চিনি সহ)</td>
+                            <td>100</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>কোমল পানীয়</td>
+                            <td>100</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>ফল (আপেল)</td>
+                            <td>100</td>
+                            <td>52</td>
+                        </tr>
+                        <tr>
+                            <td>ফল (কলা)</td>
+                            <td>100</td>
+                            <td>89</td>
+                        </tr>
+                        <tr>
+                            <td>ফল (কমলা)</td>
+                            <td>100</td>
+                            <td>47</td>
+                        </tr>
+                        <tr>
+                            <td>পাউরুটি (সাদা)</td>
+                            <td>100</td>
+                            <td>265</td>
+                        </tr>
+                        <tr>
+                            <td>পাঁপড় (ভাজা)</td>
+                            <td>100</td>
+                            <td>536</td>
+                        </tr>
+                        <tr>
+                            <td>নাচনি (সিদ্ধ)</td>
+                            <td>100</td>
+                            <td>163</td>
+                        </tr>
+                        <tr>
+                            <td>ফুলকপি (সিদ্ধ)</td>
+                            <td>100</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>শিম (সিদ্ধ)</td>
+                            <td>100</td>
+                            <td>32</td>
+                        </tr>
+                        <tr>
+                            <td>কুমড়া (সিদ্ধ)</td>
+                            <td>100</td>
+                            <td>26</td>
+                        </tr>
+                        <tr>
+                            <td>মিষ্টি আলু (সিদ্ধ)</td>
+                            <td>100</td>
+                            <td>86</td>
+                        </tr>
+                        <tr>
+                            <td>পনির</td>
+                            <td>100</td>
+                            <td>305</td>
+                        </tr>
+                        <tr>
+                            <td>শুকনো মিষ্টি</td>
+                            <td>100</td>
+                            <td>430</td>
+                        </tr>
+                        <tr>
+                            <td>ক্যাপসিকাম (কাঁচা)</td>
+                            <td>100</td>
+                            <td>20</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to convert Bangla numbers to English
+        function banglaToEnglishNumber(banglaNumber) {
+            const numbers = {
+                '০': '0',
+                '১': '1',
+                '২': '2',
+                '৩': '3',
+                '৪': '4',
+                '৫': '5',
+                '৬': '6',
+                '৭': '7',
+                '৮': '8',
+                '৯': '9'
+            };
+            return banglaNumber.replace(/[০-৯]/g, function (digit) {
+                return numbers[digit];
+            });
+        }
+
+        // Automatically convert Bangla numbers to English on input
+        document.getElementById("age").addEventListener("input", function () {
+            this.value = banglaToEnglishNumber(this.value);
+        });
+
+        document.getElementById("weight").addEventListener("input", function () {
+            this.value = banglaToEnglishNumber(this.value);
+        });
+
+        function calculateCalories() {
+            let age = document.getElementById("age").value;
+            let weight = document.getElementById("weight").value;
+            const gender = document.getElementById("gender").value;
+            const heightFeet = parseInt(document.getElementById("heightFeet").value);
+            const heightInches = parseInt(document.getElementById("heightInches").value);
+            const activityLevel = parseFloat(document.getElementById("activity").value);
+            const errorMessage = document.getElementById("error-message");
+            const resultElement = document.getElementById("result");
+            const categoryElement = document.getElementById("category");
+
+            // Clear previous messages
+            errorMessage.textContent = '';
+            resultElement.textContent = '';
+            categoryElement.textContent = '';
+
+            // Input validation
+            if (isNaN(parseInt(age)) || isNaN(parseInt(weight)) || isNaN(heightFeet) || isNaN(heightInches)) {
+                errorMessage.textContent = "সব ক্ষেত্র পূরণ করুন!";
+                return;
+            }
+
+            const heightInCm = (heightFeet * 12 + heightInches) * 2.54; // convert to cm
+            const weightInKg = parseFloat(weight); // Already in kg
+
+            let bmr;
+            if (gender === "male") {
+                bmr = 88.362 + (13.397 * weightInKg) + (4.799 * heightInCm) - (5.677 * age);
+            } else {
+                bmr = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * age);
+            }
+
+            const tdee = bmr * activityLevel; // Total Daily Energy Expenditure
+
+            // Display results
+            resultElement.textContent = `আপনার দৈনিক ক্যালোরি প্রয়োজন: ${Math.round(tdee)} ক্যালোরি`;
+            categoryElement.textContent = getCategory(tdee);
+        }
+
+        function getCategory(calories) {
+            if (calories < 1800) {
+                return "আপনার ক্যালোরি প্রয়োজন খুবই কম।";
+            } else if (calories < 2200) {
+                return "আপনার ক্যালোরি প্রয়োজন স্বাভাবিক।";
+            } else if (calories < 2800) {
+                return "আপনার ক্যালোরি প্রয়োজন উচ্চ।";
+            } else {
+                return "আপনার ক্যালোরি প্রয়োজন অত্যধিক।";
+            }
+        }
+
+        // Modal functionality
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
