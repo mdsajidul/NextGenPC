@@ -135,7 +135,7 @@ nav ul {
 /* Responsive Styles */
 @media (min-width: 768px) {
     .btn-container {
-        flex-direction: row; /* Switch to row layout for larger screens */
+        flex-direction: row; /* Row layout for larger screens */
         flex-wrap: wrap; /* Allow wrapping for excess buttons */
     }
 
@@ -145,8 +145,13 @@ nav ul {
     }
 }
 
-@media (max-width: 480px) {
-    nav ul {
-        flex-direction: column; /* Stack navigation items vertically for very small screens */
+@media (max-width: 768px) {
+    .btn-container {
+        flex-direction: column; /* Stack buttons vertically for smaller screens */
+    }
+
+    .btn {
+        width: 100%; /* Full width for buttons */
+        margin: 5px 0; /* Vertical margin between buttons */
     }
 }
