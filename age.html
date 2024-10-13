@@ -28,8 +28,8 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7); /* Stronger shadow */
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
+            width: 100vw; /* Full width of viewport */
+            height: 100vh; /* Full height of viewport */
             display: flex;
             flex-direction: column;
             justify-content: center; /* Center content vertically */
@@ -60,7 +60,7 @@
 
             select:focus {
                 border-color: #d4af37;
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7); /* Strong shadow on focus */
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7); /* Stronger shadow on focus */
             }
 
         .btn {
@@ -84,6 +84,9 @@
             margin-top: 20px;
             font-size: 22px;
             color: #d4af37;
+            display: none; /* Hide result initially */
+            text-align: left; /* Align result text to the left */
+            width: 100%; /* Make the result width full */
         }
     </style>
 </head>
@@ -125,8 +128,8 @@
                 }
             </script>
         </select>
-        <button class="btn" onclick="calculateAge()">ক্যালকুলেট করুন</button>
-        <div class="result" id="result" style="display:none;"></div>
+        <button class="btn" onclick="calculateAge()">ক্যালকুল করুন</button>
+        <div class="result" id="result"></div>
     </div>
 
     <script>
@@ -145,19 +148,36 @@
 
             let age = today.getFullYear() - birthdate.getFullYear();
             const monthDifference = today.getMonth() - birthdate.getMonth();
+            const dayDifference = today.getDate() - birthdate.getDate();
 
-            // Adjust age if birth month has not been reached this year
-            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthdate.getDate())) {
+            // Adjust age if birth month and day have not been reached this year
+            if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
                 age--;
             }
 
-            const months = today.getMonth() - birthdate.getMonth() + (age * 12);
-            const days = Math.floor((today - birthdate) / (1000 * 60 * 60 * 24));
+            const months = (monthDifference + (monthDifference < 0 ? 12 : 0)) % 12;
+            const days = (dayDifference + (dayDifference < 0 ? new Date(today.getFullYear(), today.getMonth(), 0).getDate() : 0)) % 30;
+
+            // Total calculations
+            const totalDays = Math.floor((today - birthdate) / (1000 * 60 * 60 * 24));
+            const totalMonths = Math.floor(totalDays / 30.44); // Average month length
+            const totalWeeks = Math.floor(totalDays / 7);
+            const totalHours = totalDays * 24;
+            const totalMinutes = totalHours * 60;
+            const totalSeconds = totalMinutes * 60;
 
             // Display result
             const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = `আপনার বয়স: <strong>${age} বছর, ${months % 12} মাস, ${days % 30} দিন</strong>`;
-            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `
+                    আপনার বয়স:<br> <strong>${age} বছর, ${months} মাস, ${days} দিন</strong><br><br>
+                    অথবা: <strong>${totalMonths} মাস, ${days} দিন</strong><br>
+                    অথবা: <strong>${totalWeeks} সপ্তাহ, ${days} দিন</strong><br>
+                    অথবা: <strong>${totalDays} দিন</strong><br>
+                    অথবা: <strong>${totalHours} ঘন্টা</strong><br>
+                    অথবা: <strong>${totalMinutes} মিনিট</strong><br>
+                    অথবা: <strong>${totalSeconds} সেকেন্ড</strong>
+                `;
+            resultDiv.style.display = 'block'; // Show the result
         }
     </script>
 </body>
