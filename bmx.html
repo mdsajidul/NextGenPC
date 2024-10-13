@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bn">
 
 <head>
@@ -21,7 +21,7 @@
             margin: 0;
         }
 
-        .bmi-container {
+        .bmx-container {
             background: linear-gradient(to right, #0a0a0a, #333333);
             padding: 5vw;
             border-radius: 0;
@@ -31,17 +31,18 @@
             text-align: center;
             margin: 0;
             overflow-y: auto;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Strong shadow */
         }
 
-            .bmi-container h1 {
+            .bmx-container h1 {
                 color: #f5f5f5;
                 margin-bottom: 25px;
                 font-size: 28px;
                 text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8);
             }
 
-            .bmi-container input,
-            .bmi-container select {
+            .bmx-container input,
+            .bmx-container select {
                 width: 45%;
                 padding: 10px;
                 margin-bottom: 15px;
@@ -52,11 +53,14 @@
                 font-size: 16px;
                 outline: none;
                 transition: all 0.3s ease;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8); /* Strong shadow */
             }
 
-                .bmi-container input:focus,
-                .bmi-container select:focus {
+
+                .bmx-container input:focus,
+                .bmx-container select:focus {
                     border-color: #d4af37;
+                    box-shadow: 0 12px 24px rgba(0, 0, 0, 1); /* Stronger shadow on focus */
                 }
 
         .btn {
@@ -79,14 +83,14 @@
                 color: #d4af37;
             }
 
-        .bmi-container .result {
+        .bmx-container .result {
             margin-top: 20px;
             font-size: 22px;
             font-weight: bold;
             color: #d4af37;
         }
 
-        .bmi-container .category {
+        .bmx-container .category {
             margin-top: 10px;
             font-size: 18px;
             color: #ccc;
@@ -196,11 +200,11 @@
 
         /* Responsive Styles */
         @media (max-width: 768px) {
-            .bmi-container h1 {
+            .bmx-container h1 {
                 font-size: 24px;
             }
 
-            .bmi-container .btn {
+            .bmx-container .btn {
                 font-size: 14px;
             }
         }
@@ -240,7 +244,7 @@
 
 <body>
 
-    <div class="bmi-container">
+    <div class="bmx-container">
         <h1>ক্যালোরি ক্যালকুলেটর</h1>
 
         <label class="label-text" for="age">বয়স:</label>
@@ -289,7 +293,7 @@
         <label class="label-text" for="weight">ওজন (কেজি):</label>
         <input type="text" id="weight" placeholder="আপনার ওজন দিন" required>
 
-        <label class="label-text" for="activity">দৈনিক পরিশ্রমের স্তর:</label>
+        <label class="label-text" for="activity">দৈনিক কার্যক্রমের স্তর:</label>
         <select id="activity">
             <option value="1.2">কোন পরিশ্রম নেই</option>
             <option value="1.375">সামান্য পরিশ্রম</option>
