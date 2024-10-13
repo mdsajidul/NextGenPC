@@ -133,22 +133,29 @@ nav ul {
 @media (max-width: 768px) {
     nav ul {
         flex-direction: row; /* Maintain row layout for tablets and larger phones */
+        justify-content: center; /* Center align items in the row */
+        flex-wrap: nowrap; /* Prevent wrapping */
+        overflow-x: auto; /* Allow horizontal scrolling if necessary */
     }
 
     .btn {
-        flex: 1 1 100px; /* Make the buttons flexible in width but in a row */
+        flex: 1 1 auto; /* Allow buttons to grow but maintain flexibility */
         margin: 5px; /* Add margin for small space between buttons */
-        min-width: auto; /* Remove fixed width for smaller screens */
+        min-width: 120px; /* Ensure minimum width for usability */
     }
 }
 
 @media (max-width: 480px) {
     nav ul {
-        flex-direction: column; /* Stack buttons vertically for very small screens */
+        flex-direction: row; /* Keep buttons in a row for small screens */
+        justify-content: center; /* Center align buttons */
+        overflow-x: auto; /* Allow horizontal scrolling if buttons overflow */
     }
 
     .btn {
-        width: 100%; /* Make buttons full width in small screens */
-        margin: 5px 0; /* Margin between stacked buttons */
+        flex: 1 1 auto; /* Buttons can grow to fit the space */
+        width: auto; /* Allow buttons to size based on content */
+        min-width: 100px; /* Minimum width to maintain usability */
+        margin: 5px; /* Margin between buttons */
     }
 }
