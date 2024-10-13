@@ -40,6 +40,7 @@ nav ul {
     display: flex; /* Flexbox for horizontal alignment */
     justify-content: center;
     padding: 0;
+    flex-wrap: wrap; /* Allow wrapping for small screens */
 }
 
     /* Header Button Styles */
@@ -139,23 +140,20 @@ nav ul {
         flex-direction: row; /* Maintain row layout for tablets and larger phones */
     }
 
-        nav ul li {
-            margin: 0; /* Remove margin between buttons for small screens */
-        }
-
     .btn {
-        flex: 1 1 100%; /* Ensure buttons take full width in smaller screens */
-        margin: 5px 0; /* Space between buttons */
+        flex: 1 1 auto; /* Ensure buttons are flexible */
+        margin: 5px; /* Margin for space between buttons */
+        min-width: 100px; /* Minimum width to prevent overlap */
     }
 }
 
 @media (max-width: 480px) {
     nav ul {
-        flex-direction: column; /* Stack buttons vertically for very small screens */
+        flex-direction: row; /* Keep buttons in a single row */
     }
 
     .btn {
-        width: 100%; /* Make buttons full width in small screens */
-        margin: 5px 0; /* Margin between stacked buttons */
+        flex: 1 1 auto; /* Allow buttons to stretch while maintaining flexibility */
+        margin: 5px; /* Margin for space between buttons */
     }
 }
