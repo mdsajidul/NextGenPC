@@ -63,6 +63,7 @@
             color: #f5f5f5; /* Text color */
             transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Added transition for shadow */
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Strong shadow for textarea */
+            overflow: auto; /* Allow scrolling if content overflows */
         }
 
             textarea:focus {
@@ -96,25 +97,6 @@
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow for output boxes */
             }
 
-        .keywords {
-            margin-top: 20px;
-            font-size: 1.1rem;
-            color: #d4af37; /* Keywords text color */
-        }
-
-        #topKeywords {
-            list-style-type: none;
-            padding: 0;
-        }
-
-            #topKeywords li {
-                background-color: #e7f3ff; /* Background for keywords */
-                padding: 8px;
-                margin: 5px 0;
-                border-radius: 4px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Strong shadow for keywords */
-            }
-
         #readability {
             cursor: pointer;
             color: #d4af37; /* Readability text color */
@@ -126,6 +108,7 @@
             font-weight: bold;
             margin-top: 10px; /* Space above the notice */
         }
+
         /* Custom Scrollbar Styles for WebKit Browsers (Chrome, Safari) */
         ::-webkit-scrollbar {
             width: 12px; /* Width of the scrollbar */
@@ -150,12 +133,6 @@
             scrollbar-width: thin; /* Make scrollbar thin */
             scrollbar-color: #d4af37 #444; /* Thumb color and track color */
         }
-
-        /* Ensure that the scrollbar styles apply to all containers */
-        .container, .age-container, textarea {
-            overflow: auto; /* Allow overflow for scrolling */
-        }
-
     </style>
 </head>
 <body>
@@ -180,11 +157,6 @@
             </div>
             <div id="readabilityNotice"></div> <!-- New div for readability score -->
         </div>
-
-        <div class="keywords">
-            <h2>Top Keywords</h2>
-            <ul id="topKeywords"></ul>
-        </div>
     </div>
 
     <script>
@@ -193,7 +165,6 @@
         const wordCount = document.getElementById('wordCount');
         const sentenceCount = document.getElementById('sentenceCount');
         const paragraphCount = document.getElementById('paragraphCount');
-        const topKeywords = document.getElementById('topKeywords');
         const readabilityNotice = document.getElementById('readabilityNotice'); // New variable for readability notice
 
         textInput.addEventListener('input', updateCounts);
@@ -216,63 +187,37 @@
             const paragraphs = text.split(/\n+/).filter(paragraph => paragraph.trim().length > 0);
             paragraphCount.innerText = paragraphs.length;
 
-            // Display top keywords
-            displayTopKeywords(words);
+            // Display readability notice if previously calculated
+            readabilityNotice.innerText = ''; // Clear any previous notice
         }
 
-        function displayTopKeywords(words) {
-            const keywordMap = {};
-            words.forEach(word => {
-                const lowerWord = word.toLowerCase();
-                keywordMap[lowerWord] = (keywordMap[lowerWord] || 0) + 1;
-            });
-
-            const sortedKeywords = Object.entries(keywordMap)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, 5);
-
-            topKeywords.innerHTML = '';
-            sortedKeywords.forEach(([keyword, count]) => {
-                const li = document.createElement('li');
-                li.innerText = `${keyword} (${count})`;
-                topKeywords.appendChild(li);
-            });
+        function countSyllables(word) {
+            word = word.toLowerCase();
+            const syllableRegex = /[aeiouy]{1,2}/g;
+            const matches = word.match(syllableRegex);
+            return matches ? matches.length : 0; // Return the number of syllables
         }
 
         function calculateReadability() {
             const text = textInput.value;
             const words = text.trim().split(/\s+/).filter(word => word.length > 0);
             const sentences = text.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0);
-            const syllables = countSyllables(text);
+            const syllables = words.map(countSyllables).reduce((a, b) => a + b, 0); // Total syllables
 
             if (words.length === 0 || sentences.length === 0) {
-                readabilityNotice.innerText = "Not enough text to calculate readability.";
+                readabilityNotice.innerText = "Not enough text to calculate readability."; // Update notice
                 return;
             }
 
-            // Flesch-Kincaid Reading Ease formula
-            const fleschKincaid = 206.835 - (1.015 * (words.length / sentences.length)) - (84.6 * (syllables / words.length));
-            readabilityNotice.innerText = "Readability Score: " + fleschKincaid.toFixed(2); // Display score
-        }
+            // Calculate the Flesch-Kincaid readability score
+            const averageSentenceLength = words.length / sentences.length;
+            const averageSyllablesPerWord = syllables / words.length;
+            const fleschKincaid = 206.835 - (1.015 * averageSentenceLength) - (84.6 * averageSyllablesPerWord);
 
-        function countSyllables(text) {
-            const words = text.split(/\s+/).filter(word => word.length > 0);
-            let syllableCount = 0;
+            // Clamp the score to a range between 0 and 100
+            const percentageScore = Math.max(0, Math.min(100, fleschKincaid));
 
-            words.forEach(word => {
-                syllableCount += syllableCountInWord(word);
-            });
-
-            return syllableCount;
-        }
-
-        function syllableCountInWord(word) {
-            // Simple syllable counting function
-            const wordLower = word.toLowerCase();
-            if (wordLower.length <= 3) return 1; // Short words have 1 syllable
-            const syllablePattern = /[aeiouy]{1,2}/g; // Simple vowel grouping for syllable counting
-            const syllables = wordLower.match(syllablePattern);
-            return syllables ? syllables.length : 1; // Default to 1 if no match
+            readabilityNotice.innerText = `The readability score is ${percentageScore.toFixed(2)}%.`; // Show score as a percentage
         }
     </script>
 </body>
