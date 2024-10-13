@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বয়স ক্যালকুলেটর</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #f5f5f5;
+            background: linear-gradient(to right, #0a0a0a, #333333);
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+
+        .age-container {
+            background: linear-gradient(to right, #0a0a0a, #333333);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            overflow: auto; /* Allow scrolling if content overflows */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #d4af37;
+            text-align: center; /* Center the heading */
+        }
+
+        select {
+            width: 70%; /* Adjusted width for smaller dropdown */
+            padding: 8px; /* Reduced padding */
+            border-radius: 8px;
+            border: 1px solid #444;
+            background-color: #333;
+            color: #f5f5f5;
+            font-size: 14px; /* Smaller font size */
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Added transition for shadow */
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Strong shadow for dropdown */
+        }
+
+            select:focus {
+                border-color: #d4af37;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7); /* Strong shadow on focus */
+            }
+
+        .btn {
+            padding: 10px 20px;
+            background: linear-gradient(145deg, #333333, #444444);
+            color: #f5f5f5;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow for button */
+        }
+
+            .btn:hover {
+                background: linear-gradient(145deg, #444444, #333333);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7); /* Stronger shadow on hover */
+            }
+
+        .result {
+            margin-top: 20px;
+            font-size: 22px;
+            color: #d4af37;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="age-container">
+        <h1>বয়স ক্যালকুলেটর</h1>
+        <select id="day">
+            <option value="" disabled selected>দিন</option>
+            <!-- Generate days dynamically -->
+            <script>
+                for (let i = 1; i <= 31; i++) {
+                    document.write(`<option value="${i}">${i}</option>`);
+                }
+            </script>
+        </select>
+        <select id="month">
+            <option value="" disabled selected>মাস</option>
+            <option value="1">জানুয়ারি</option>
+            <option value="2">ফেব্রুয়ারি</option>
+            <option value="3">মার্চ</option>
+            <option value="4">এপ্রিল</option>
+            <option value="5">মে</option>
+            <option value="6">জুন</option>
+            <option value="7">জুলাই</option>
+            <option value="8">অগাস্ট</option>
+            <option value="9">সেপ্টেম্বর</option>
+            <option value="10">অক্টোবর</option>
+            <option value="11">নভেম্বর</option>
+            <option value="12">ডিসেম্বর</option>
+        </select>
+        <select id="year">
+            <option value="" disabled selected>বছর</option>
+            <!-- Generate years dynamically -->
+            <script>
+                const currentYear = new Date().getFullYear();
+                for (let i = currentYear; i >= 1900; i--) {
+                    document.write(`<option value="${i}">${i}</option>`);
+                }
+            </script>
+        </select>
+        <button class="btn" onclick="calculateAge()">ক্যালকুলেট করুন</button>
+        <div class="result" id="result" style="display:none;"></div>
+    </div>
+
+    <script>
+        function calculateAge() {
+            const day = Number(document.getElementById('day').value);
+            const month = Number(document.getElementById('month').value);
+            const year = Number(document.getElementById('year').value);
+
+            if (!day || !month || !year) {
+                alert('দয়া করে সঠিক তারিখ নির্বাচন করুন!');
+                return;
+            }
+
+            const birthdate = new Date(year, month - 1, day); // Create a new date object
+            const today = new Date();
+
+            let age = today.getFullYear() - birthdate.getFullYear();
+            const monthDifference = today.getMonth() - birthdate.getMonth();
+
+            // Adjust age if birth month has not been reached this year
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthdate.getDate())) {
+                age--;
+            }
+
+            const months = today.getMonth() - birthdate.getMonth() + (age * 12);
+            const days = Math.floor((today - birthdate) / (1000 * 60 * 60 * 24));
+
+            // Display result
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `আপনার বয়স: <strong>${age} বছর, ${months % 12} মাস, ${days % 30} দিন</strong>`;
+            resultDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
