@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FTB - Word Counter</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #f5f5f5;
+            background: linear-gradient(to right, #0a0a0a, #333333);
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+
+        .container {
+            background: linear-gradient(to right, #0a0a0a, #333333);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.9); /* Stronger shadow */
+            width: 100%; /* Full width */
+            height: 100vh; /* Set container height to full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            overflow: auto; /* Allow scrolling if content overflows */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #d4af37;
+            text-align: center; /* Center the heading */
+        }
+
+        .input-section {
+            margin-bottom: 30px;
+            width: 70%; /* Adjusted width for the input section */
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 16px;
+            resize: none; /* Disable resizing */
+            background-color: #333; /* Background for textarea */
+            color: #f5f5f5; /* Text color */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Added transition for shadow */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Strong shadow for textarea */
+        }
+
+            textarea:focus {
+                outline: none;
+                border-color: #d4af37; /* Focus border color */
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9); /* Stronger shadow on focus */
+            }
+
+        .output-section {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+            width: 100%; /* Full width for output section */
+        }
+
+        .output {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            color: #d4af37; /* Output text color */
+        }
+
+            .output div {
+                padding: 5px;
+                background-color: #444; /* Background for output boxes */
+                border-radius: 4px;
+                flex: 1;
+                text-align: center;
+                margin: 0 5px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow for output boxes */
+            }
+
+        .keywords {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #d4af37; /* Keywords text color */
+        }
+
+        #topKeywords {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            #topKeywords li {
+                background-color: #e7f3ff; /* Background for keywords */
+                padding: 8px;
+                margin: 5px 0;
+                border-radius: 4px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Strong shadow for keywords */
+            }
+
+        #readability {
+            cursor: pointer;
+            color: #d4af37; /* Readability text color */
+            font-weight: bold; /* Bold text */
+        }
+
+        #readabilityNotice {
+            color: #d4af37; /* Readability notice color */
+            font-weight: bold;
+            margin-top: 10px; /* Space above the notice */
+        }
+        /* Custom Scrollbar Styles for WebKit Browsers (Chrome, Safari) */
+        ::-webkit-scrollbar {
+            width: 12px; /* Width of the scrollbar */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #444; /* Track color */
+            border-radius: 8px; /* Rounded corners for track */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37; /* Scrollbar thumb color */
+            border-radius: 8px; /* Rounded corners for thumb */
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #b5942a; /* Color on hover */
+            }
+
+        /* Custom Scrollbar Styles for Firefox */
+        * {
+            scrollbar-width: thin; /* Make scrollbar thin */
+            scrollbar-color: #d4af37 #444; /* Thumb color and track color */
+        }
+
+        /* Ensure that the scrollbar styles apply to all containers */
+        .container, .age-container, textarea {
+            overflow: auto; /* Allow overflow for scrolling */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Word Counter</h1>
+        <div class="input-section">
+            <textarea id="textInput" placeholder="Enter your text here..."></textarea>
+        </div>
+
+        <div class="output-section">
+            <h2>Statistics</h2>
+            <div class="output">
+                <div>Characters: <span id="characterCount">0</span></div>
+                <div>Words: <span id="wordCount">0</span></div>
+            </div>
+            <div class="output">
+                <div>Sentences: <span id="sentenceCount">0</span></div>
+                <div>Paragraphs: <span id="paragraphCount">0</span></div>
+            </div>
+            <div class="output">
+                <div id="readability" onclick="calculateReadability()">Show readability score.</div>
+            </div>
+            <div id="readabilityNotice"></div> <!-- New div for readability score -->
+        </div>
+
+        <div class="keywords">
+            <h2>Top Keywords</h2>
+            <ul id="topKeywords"></ul>
+        </div>
+    </div>
+
+    <script>
+        const textInput = document.getElementById('textInput');
+        const characterCount = document.getElementById('characterCount');
+        const wordCount = document.getElementById('wordCount');
+        const sentenceCount = document.getElementById('sentenceCount');
+        const paragraphCount = document.getElementById('paragraphCount');
+        const topKeywords = document.getElementById('topKeywords');
+        const readabilityNotice = document.getElementById('readabilityNotice'); // New variable for readability notice
+
+        textInput.addEventListener('input', updateCounts);
+
+        function updateCounts() {
+            const text = textInput.value;
+
+            // Count characters
+            characterCount.innerText = text.length;
+
+            // Count words
+            const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+            wordCount.innerText = words.length;
+
+            // Count sentences
+            const sentences = text.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0);
+            sentenceCount.innerText = sentences.length;
+
+            // Count paragraphs
+            const paragraphs = text.split(/\n+/).filter(paragraph => paragraph.trim().length > 0);
+            paragraphCount.innerText = paragraphs.length;
+
+            // Display top keywords
+            displayTopKeywords(words);
+        }
+
+        function displayTopKeywords(words) {
+            const keywordMap = {};
+            words.forEach(word => {
+                const lowerWord = word.toLowerCase();
+                keywordMap[lowerWord] = (keywordMap[lowerWord] || 0) + 1;
+            });
+
+            const sortedKeywords = Object.entries(keywordMap)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 5);
+
+            topKeywords.innerHTML = '';
+            sortedKeywords.forEach(([keyword, count]) => {
+                const li = document.createElement('li');
+                li.innerText = `${keyword} (${count})`;
+                topKeywords.appendChild(li);
+            });
+        }
+
+        function calculateReadability() {
+            const text = textInput.value;
+            const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+            const sentences = text.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0);
+            const syllables = countSyllables(text);
+
+            if (words.length === 0 || sentences.length === 0) {
+                readabilityNotice.innerText = "Not enough text to calculate readability.";
+                return;
+            }
+
+            // Flesch-Kincaid Reading Ease formula
+            const fleschKincaid = 206.835 - (1.015 * (words.length / sentences.length)) - (84.6 * (syllables / words.length));
+            readabilityNotice.innerText = "Readability Score: " + fleschKincaid.toFixed(2); // Display score
+        }
+
+        function countSyllables(text) {
+            const words = text.split(/\s+/).filter(word => word.length > 0);
+            let syllableCount = 0;
+
+            words.forEach(word => {
+                syllableCount += syllableCountInWord(word);
+            });
+
+            return syllableCount;
+        }
+
+        function syllableCountInWord(word) {
+            // Simple syllable counting function
+            const wordLower = word.toLowerCase();
+            if (wordLower.length <= 3) return 1; // Short words have 1 syllable
+            const syllablePattern = /[aeiouy]{1,2}/g; // Simple vowel grouping for syllable counting
+            const syllables = wordLower.match(syllablePattern);
+            return syllables ? syllables.length : 1; // Default to 1 if no match
+        }
+    </script>
+</body>
+</html>
