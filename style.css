@@ -157,3 +157,12 @@ nav ul {
         margin: 5px; /* Margin for space between buttons */
     }
 }
+
+.hover-effect {
+    color: var(--text-color); /* Default text color */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+    .hover-effect:hover {
+        color: var(--highlight-color); /* Change color on hover */
+    }
