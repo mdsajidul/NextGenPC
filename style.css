@@ -16,7 +16,7 @@ body {
 header {
     background: linear-gradient(135deg, #1f1f1f, #3b3b3b);
     padding: 20px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Stronger shadow effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
     position: relative;
 }
 
@@ -31,10 +31,11 @@ nav ul {
     display: flex;
     justify-content: center;
     padding: 0;
+    flex-wrap: wrap;
 }
 
 nav ul li {
-    margin: 0 10px;
+    margin: 10px;
 }
 
 nav ul li a {
@@ -43,7 +44,7 @@ nav ul li a {
     font-size: 1.1em;
     font-weight: 700;
     transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Stronger text shadow */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 nav ul li a:hover {
@@ -61,21 +62,20 @@ nav ul li a:hover {
     font-size: 3em;
     margin-bottom: 20px;
     color: #f5f5f5;
-    text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8); /* Stronger text shadow */
+    text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8);
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.intro h1:hover {
-    transform: scale(1.05);
-}
+
 
 .intro p {
     font-size: 1.2em;
     margin-bottom: 40px;
     color: #f5f5f5;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Stronger text shadow */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
+/* Button Styles */
 .btn-container {
     display: flex;
     justify-content: center;
@@ -89,8 +89,9 @@ nav ul li a:hover {
     color: #f5f5f5;
     text-decoration: none;
     border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Stronger button shadow */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
     font-size: 1.1em;
+    min-width: 150px;
     text-align: center;
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
@@ -98,8 +99,8 @@ nav ul li a:hover {
 .btn:hover {
     background: linear-gradient(145deg, #444444, #333333);
     transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 1); /* Stronger shadow on hover */
-    color: #d4af37; /* Highlighted text color */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 1);
+    color: #d4af37;
 }
 
 /* Form Container */
@@ -113,7 +114,7 @@ form {
     background: #222;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Stronger shadow effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
@@ -176,49 +177,58 @@ button:hover {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    /* Header */
     nav ul {
-        flex-direction: column; /* Stack the nav items */
-    }
-    
-    nav ul li {
-        margin: 10px 0; /* Vertical margin for stacked items */
-    }
-
-    .intro h1 {
-        font-size: 2.5em; /* Smaller font size for mobile */
-    }
-
-    .intro p {
-        font-size: 1.1em; /* Adjust paragraph size for mobile */
+        flex-direction: row;
     }
 
     .btn {
-        padding: 10px 20px; /* Smaller button padding */
-        font-size: 1em; /* Adjust button size for mobile */
+        flex: 1 1 100px;
+        margin: 5px;
+    }
+
+    .intro h1 {
+        font-size: 2.5em;
+    }
+
+    .intro p {
+        font-size: 1.1em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1em;
     }
 
     form {
-        padding: 15px; /* Adjust form padding */
+        padding: 15px;
     }
 
     input[type="text"],
     input[type="password"] {
-        font-size: 14px; /* Smaller input text size */
+        font-size: 14px;
     }
 
     button {
-        font-size: 14px; /* Smaller button font size */
+        font-size: 14px;
     }
 }
 
 @media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+
     .intro {
-        padding: 50px 10px; /* Adjust padding for very small screens */
+        padding: 50px 10px;
     }
 
     .btn-container {
-        flex-direction: column; /* Stack buttons vertically */
-        gap: 5px; /* Adjust gap between buttons */
+        flex-direction: column;
+        gap: 5px;
     }
 }
