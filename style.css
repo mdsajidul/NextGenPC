@@ -42,11 +42,11 @@ nav ul {
     padding: 0;
 }
 
-nav ul li {
-    margin: 0 10px; /* Margin between buttons */
-}
+    /* Header Button Styles */
+    nav ul li {
+        margin: 0 10px; /* Margin between buttons */
+    }
 
-/* Header Button Styles */
 .btn {
     display: flex; /* Flexbox for button content */
     justify-content: center; /* Center text horizontally */
@@ -63,13 +63,13 @@ nav ul li {
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
-/* Button Hover Effect */
-.btn:hover {
-    background: linear-gradient(145deg, var(--secondary-bg), var(--primary-bg));
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 1);
-    color: var(--highlight-color);
-}
+    /* Button Hover Effect */
+    .btn:hover {
+        background: linear-gradient(145deg, var(--secondary-bg), var(--primary-bg));
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 1);
+        color: var(--highlight-color);
+    }
 
 /* Intro Section */
 .intro {
@@ -77,20 +77,20 @@ nav ul li {
     text-align: center;
 }
 
-.intro h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-    color: var(--text-color);
-    text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8);
-    transition: color 0.3s ease, transform 0.3s ease;
-}
+    .intro h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        color: var(--text-color);
+        text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8);
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
 
-.intro p {
-    font-size: 1.2em;
-    margin-bottom: 40px;
-    color: var(--text-color);
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-}
+    .intro p {
+        font-size: 1.2em;
+        margin-bottom: 40px;
+        color: var(--text-color);
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
 
 .btn-container {
     display: flex;
@@ -129,9 +129,9 @@ nav ul li {
     border-radius: 10px; /* Rounded corners for the thumb */
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--highlight-color); /* Color of the thumb on hover */
-}
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--highlight-color); /* Color of the thumb on hover */
+    }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -139,9 +139,13 @@ nav ul li {
         flex-direction: row; /* Maintain row layout for tablets and larger phones */
     }
 
+        nav ul li {
+            margin: 0; /* Remove margin between buttons for small screens */
+        }
+
     .btn {
-        flex: 1 1 150px; /* Maintain button size */
-        margin: 5px; /* Add margin for small space between buttons */
+        flex: 1 1 100%; /* Ensure buttons take full width in smaller screens */
+        margin: 5px 0; /* Space between buttons */
     }
 }
 
