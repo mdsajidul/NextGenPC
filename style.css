@@ -1,4 +1,4 @@
-/* Basic Reset */
+"/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -33,23 +33,23 @@ nav ul {
     padding: 0;
 }
 
-nav ul li {
-    margin: 0 10px;
-}
+    nav ul li {
+        margin: 0 10px;
+    }
 
-nav ul li a {
-    text-decoration: none;
-    color: #f5f5f5;
-    font-size: 1.1em;
-    font-weight: 700;
-    transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Stronger text shadow */
-}
+        nav ul li a {
+            text-decoration: none;
+            color: #f5f5f5;
+            font-size: 1.1em;
+            font-weight: 700;
+            transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Stronger text shadow */
+        }
 
-nav ul li a:hover {
-    color: #d4af37;
-    transform: scale(1.05);
-}
+            nav ul li a:hover {
+                color: #d4af37;
+                transform: scale(1.05);
+            }
 
 /* Intro Section */
 .intro {
@@ -57,24 +57,24 @@ nav ul li a:hover {
     text-align: center;
 }
 
-.intro h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-    color: #f5f5f5;
-    text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8); /* Stronger text shadow */
-    transition: color 0.3s ease, transform 0.3s ease;
-}
+    .intro h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        color: #f5f5f5;
+        text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8); /* Stronger text shadow */
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
 
-.intro h1:hover {
-    transform: scale(1.05);
-}
+        .intro h1:hover {
+            transform: scale(1.05);
+        }
 
-.intro p {
-    font-size: 1.2em;
-    margin-bottom: 40px;
-    color: #f5f5f5;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Stronger text shadow */
-}
+    .intro p {
+        font-size: 1.2em;
+        margin-bottom: 40px;
+        color: #f5f5f5;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Stronger text shadow */
+    }
 
 .btn-container {
     display: flex;
@@ -95,12 +95,12 @@ nav ul li a:hover {
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
-.btn:hover {
-    background: linear-gradient(145deg, #444444, #333333);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 1); /* Stronger shadow on hover */
-    color: #d4af37; /* Highlighted text color */
-}
+    .btn:hover {
+        background: linear-gradient(145deg, #444444, #333333);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 1); /* Stronger shadow on hover */
+        color: #d4af37; /* Highlighted text color */
+    }
 
 /* Form Container */
 h1 {
@@ -139,11 +139,11 @@ input[type="password"] {
     color: #f5f5f5;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
-    border-color: #d4af37;
-    outline: none;
-}
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        border-color: #d4af37;
+        outline: none;
+    }
 
 /* Submit Button */
 button {
@@ -158,10 +158,10 @@ button {
     transition: background-color 0.3s, transform 0.2s;
 }
 
-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.02);
-}
+    button:hover {
+        background-color: #0056b3;
+        transform: scale(1.02);
+    }
 
 /* Footer Styles */
 .footer {
@@ -180,10 +180,10 @@ button:hover {
     nav ul {
         flex-direction: column; /* Stack the nav items */
     }
-    
-    nav ul li {
-        margin: 10px 0; /* Vertical margin for stacked items */
-    }
+
+        nav ul li {
+            margin: 10px 0; /* Vertical margin for stacked items */
+        }
 
     .intro h1 {
         font-size: 2.5em; /* Smaller font size for mobile */
@@ -220,5 +220,64 @@ button:hover {
     .btn-container {
         flex-direction: column; /* Stack buttons vertically */
         gap: 5px; /* Adjust gap between buttons */
+    }
+}
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 15px 30px; /* Add padding for consistent size */
+    min-width: 150px; /* Ensure all buttons have the same minimum width */
+    text-align: center;
+    background: linear-gradient(145deg, #333333, #444444);
+    color: #f5f5f5;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    font-size: 1.1em;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+    .btn:hover {
+        background: linear-gradient(145deg, #444444, #333333);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 1);
+        color: #d4af37;
+    }
+
+
+/* Button container for profile, WhatsApp, Login, Sign Up */
+nav ul {
+    list-style: none;
+    display: flex; /* Use flexbox to align buttons in the same row */
+    justify-content: center;
+    flex-wrap: wrap; /* Allows wrapping in case of small screens */
+    padding: 0;
+}
+
+    nav ul li {
+        margin: 10px; /* Add some space between buttons */
+    }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: row; /* Maintain row layout for tablets and larger phones */
+    }
+
+    .btn {
+        flex: 1 1 100px; /* Make the buttons flexible in width but in a row */
+        margin: 5px; /* Add margin for small space between buttons */
+        min-width: auto; /* Remove fixed width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column; /* Stack buttons vertically for very small screens */
+    }
+
+    .btn {
+        width: 100%; /* Make buttons full width in small screens */
+        margin: 5px 0; /* Margin between stacked buttons */
     }
 }
