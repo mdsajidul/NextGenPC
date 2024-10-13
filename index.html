@@ -1,161 +1,61 @@
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGenPC - Computer Course</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <script src="script.js" defer></script> <!-- Link to JavaScript file -->
+    <script defer src="theme-switcher.js"></script> <!-- Theme switcher script -->
+</head>
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
 
-/* CSS Variables for Consistency */
-:root {
-    --primary-bg: #333;
-    --secondary-bg: #444;
-    --text-color: #f5f5f5;
-    --highlight-color: #d4af37;
-    --header-bg: linear-gradient(135deg, #1f1f1f, #3b3b3b);
-}
+    <header>
+        <div class="header">
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="profile.html" class="btn">Profile</a></li>
+                    <li><a href="https://wa.me/1745897322" class="btn" target="_blank">WhatsApp</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-/* General Styles */
-body {
-    font-family: 'Roboto', sans-serif;
-    color: var(--text-color);
-    background: linear-gradient(to right, #0a0a0a, var(--primary-bg));
-}
+    <section class="intro">
+        <div class="container">
+            <h1>Future Tech Bangladesh</h1>
+            <p>সব টুলস এক জায়গায় – সহজ এবং কার্যকর।</p>
+            <div class="btn-container">
+                <a href="lesson1.html" class="btn">টাইপিং</a>
+                <a href="quiz-home.html" class="btn">কুইজ</a>
+                <a href="game-home.html" class="btn">গেমস</a>
+                <a href="islam-homepage.html" class="btn">ইসলাম</a>
+                <a href="bmi.html" class="btn">BMI নির্নয়</a>
+                <a href="bmx.html" class="btn">BMX নির্নয়</a>
+                <a href="age.html" class="btn">বয়স নির্নয়</a>
+                <a href="word-counter.html" class="btn">Word Counter</a>
+            </div>
+        </div>
+    </section>
 
-/* Header Styles */
-header {
-    background: var(--header-bg);
-    padding: 20px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
-    position: relative;
-}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load the saved theme from localStorage
+            const theme = localStorage.getItem('theme') || 'default-theme.css';
+            document.getElementById('theme-link').setAttribute('href', theme);
 
-.header nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-nav ul {
-    list-style: none;
-    display: flex; /* Flexbox for horizontal alignment */
-    justify-content: center;
-    padding: 0;
-}
-
-/* Header Button Styles */
-nav ul li {
-    margin: 0 10px; /* Margin between buttons */
-}
-
-.btn {
-    display: flex; /* Flexbox for button content */
-    justify-content: center; /* Center text horizontally */
-    align-items: center; /* Center text vertically */
-    width: 150px; /* Fixed width for all buttons */
-    height: 50px; /* Fixed height for all buttons */
-    padding: 10px; /* Padding inside buttons */
-    text-decoration: none;
-    background: linear-gradient(145deg, var(--primary-bg), var(--secondary-bg));
-    color: var(--text-color);
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
-    font-size: 1.1em;
-    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-}
-
-/* Button Hover Effect */
-.btn:hover {
-    background: linear-gradient(145deg, var(--secondary-bg), var(--primary-bg));
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 1);
-    color: var(--highlight-color);
-}
-
-/* Intro Section */
-.intro {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.intro h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-    color: var(--text-color);
-    text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8);
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.intro p {
-    font-size: 1.2em;
-    margin-bottom: 40px;
-    color: var(--text-color);
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-}
-
-.btn-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Allow wrapping in case of small screens */
-    gap: 10px; /* Space between buttons */
-    padding: 20px; /* Aesthetic padding */
-}
-
-.btn {
-    flex: 1 1 150px; /* Ensure buttons are flexible */
-    padding: 15px; /* Uniform padding for buttons */
-    text-align: center;
-    background: linear-gradient(145deg, var(--primary-bg), var(--secondary-bg));
-    color: var(--text-color);
-    text-decoration: none;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
-    font-size: 1.1em;
-    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-}
-
-/* Custom Scrollbar Styles for WebKit Browsers */
-::-webkit-scrollbar {
-    width: 12px; /* Width of the scrollbar */
-    height: 12px; /* Height of the scrollbar (for horizontal scrollbar) */
-}
-
-::-webkit-scrollbar-track {
-    background: #222; /* Background of the scrollbar track */
-    border-radius: 10px; /* Rounded corners for the track */
-}
-
-::-webkit-scrollbar-thumb {
-    background: #444; /* Color of the scrollbar thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--highlight-color); /* Color of the thumb on hover */
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: row; /* Maintain row layout for tablets and larger phones */
-    }
-
-    nav ul li {
-        margin: 0; /* Remove margin between buttons for small screens */
-    }
-
-    .btn {
-        flex: 1 1 100%; /* Ensure buttons take full width in smaller screens */
-        margin: 5px 0; /* Space between buttons */
-    }
-}
-
-@media (max-width: 480px) {
-    nav ul {
-        flex-direction: column; /* Stack buttons vertically for very small screens */
-    }
-
-    .btn {
-        width: 100%; /* Make buttons full width in small screens */
-        margin: 5px 0; /* Margin between stacked buttons */
-    }
-}
+            // Fetch notice from Google Apps Script
+            fetch('https://script.google.com/macros/s/AKfycbxeuJHos6kPwGxtMEXDzDiMGctTJWwYysRVe_XVfytg9XOvkF1IStTtWy0PoBkHWlmg/exec')
+                .then(response => response.text())
+                .then(notice => {
+                    document.getElementById('notice').textContent = notice;
+                })
+                .catch(error => {
+                    console.error('Error fetching notice:', error);
+                });
+        });
+    </script>
+</body>
+</html>
