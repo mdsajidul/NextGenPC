@@ -8,13 +8,82 @@
 /* General Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    color: #f5f5f5;
+    color: #d4af37;
     background: linear-gradient(to right, #0a0a0a, #333333);
+    height: 100vh; /* Full viewport height */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    font-weight: bold; /* Make all text bold */
+}
+
+.age-container {
+    background: linear-gradient(to right, #0a0a0a, #333333);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+    width: 100vw; /* Full width of viewport */
+    height: 100vh; /* Full height of viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    overflow: auto; /* Allow scrolling if content overflows */
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #d4af37;
+    text-align: center; /* Center the heading */
+}
+
+select {
+    width: 70%; /* Adjusted width for smaller dropdown */
+    padding: 8px; /* Reduced padding */
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: linear-gradient(to right, #0a0a0a, #333333);
+    color: #d4af37;
+    font-size: 14px; /* Smaller font size */
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Added transition for shadow */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Strong shadow for dropdown */
+    font-weight: bold; /* Make dropdown text bold */
+}
+
+    select:focus {
+        border-color: #d4af37;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7); /* Stronger shadow on focus */
+    }
+
+.btn {
+    padding: 10px 20px;
+    background: linear-gradient(to right, #0a0a0a, #333333);
+    color: #d4af37;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow for button */
+    font-weight: bold; /* Make button text bold */
+}
+
+    .btn:hover {
+        background: linear-gradient(to right, #0a0a0a, #333333);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7); /* Stronger shadow on hover */
+    }
+
+.result {
+    margin-top: 20px;
+    font-size: 22px;
+    color: #d4af37;
+    display: none; /* Hide result initially */
+    text-align: left; /* Align result text to the left */
+    width: 100%; /* Make the result width full */
+    font-weight: bold; /* Make result text bold */
 }
 
 /* Sidebar Menu */
@@ -24,26 +93,28 @@ body {
     left: 0;
     width: 250px;
     height: 100%;
-    background: #222;
-    color: #f5f5f5;
+    background: linear-gradient(to right, #0a0a0a, #333333);
+    color: #d4af37;
     display: flex;
     flex-direction: column;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     transform: translateX(-100%);
     transition: transform 0.3s ease;
+    font-weight: bold; /* Make sidebar text bold */
 }
 
     .sidebar a {
-        color: #f5f5f5;
+        color: #d4af37;
         text-decoration: none;
         margin: 10px 0;
         font-size: 1.2em;
         transition: color 0.3s;
+        font-weight: bold; /* Make sidebar link text bold */
     }
 
         .sidebar a:hover {
-            color: #33ff33;
+            color: #d4af37;
         }
 
 /* Hamburger Menu */
@@ -51,12 +122,12 @@ body {
     position: fixed;
     top: 80px;
     left: 20px;
-    background: #333;
-    color: #f5f5f5;
+    color: #d4af37;
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 1000;
+    font-weight: bold; /* Make menu toggle text bold */
 }
 
     .menu-toggle i {
@@ -70,7 +141,7 @@ body {
 
 /* Quiz Container */
 .quiz-container {
-    background: #222;
+    background: linear-gradient(to right, #0a0a0a, #333333);
     border-radius: 8px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
     padding: 20px;
@@ -82,27 +153,27 @@ body {
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
+    font-weight: bold; /* Make quiz container text bold */
 }
 
 /* Timer and Score */
 #timer {
-    background: #333;
     border-radius: 8px;
     padding: 10px;
     margin-bottom: 20px;
-    color: #33ff33;
+    color: #d4af37;
     position: relative;
     overflow: hidden;
     width: 100%;
+    font-weight: bold; /* Make timer text bold */
 }
 
 #timer-bar {
     height: 8px;
-    background: #33ff33;
+    background: #d4af37;
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
 }
 
 /* Question Text */
@@ -110,7 +181,8 @@ body {
     font-size: 1.2em;
     margin-bottom: 20px;
     text-align: center;
-    color: #33ff33;
+    color: #d4af37;
+    font-weight: bold; /* Make question text bold */
 }
 
 /* Answer Buttons Container */
@@ -125,131 +197,120 @@ body {
 .answer-button {
     display: block;
     background: linear-gradient(145deg, #333333, #222222);
-    color: #00ff00;
+    color: #d4af37;
     padding: 15px;
     margin: 5px 0;
     border-radius: 8px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8), inset 0 0 6px rgba(0, 255, 0, 0.5);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8); /* Removed inset shadow */
     font-size: 1.2em;
     cursor: pointer;
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
     width: 100%;
     max-width: 300px;
     text-align: center;
-    text-shadow: 0 0 6px rgba(0, 255, 0, 0.5);
+    font-weight: bold; /* Make answer button text bold */
 }
 
+    /* Correct and Incorrect Answers */
     .answer-button.correct {
-        background: linear-gradient(145deg, #333333, #222222);
-        color: #00ff00;
+        background: linear-gradient(to right, #0a0a0a, #333333);
+        color: #d4af37;
         border: 1px solid #00ff00;
     }
 
     .answer-button.incorrect {
         background: linear-gradient(145deg, #333333, #222222);
-        color: #ff0033;
+        color: #d4af37;
         border: 1px solid #d9534f;
     }
 
+    /* Answer Button Hover Effects */
     .answer-button:hover {
         background: linear-gradient(145deg, #444444, #333333);
         transform: translateY(-2px);
-        box-shadow: 0 8px 16px rgba(0, 255, 0, 1), inset 0 0 10px rgba(0, 255, 0, 0.7);
-        color: #00ff00;
+        box-shadow: 0 8px 16px #d4af37; /* Removed inset shadow */
+        color: #d4af37;
     }
 
     .answer-button:active {
         background: linear-gradient(145deg, #222222, #111111);
         transform: translateY(4px);
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6), inset 0 0 4px rgba(0, 255, 0, 0.3);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6); /* Removed inset shadow */
     }
 
 /* Next Button */
 #next-button {
     display: block;
     background: linear-gradient(145deg, #333333, #222222);
-    color: #00ff00;
+    color: #d4af37;
     padding: 15px;
     margin-top: 20px;
     border-radius: 8px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8), inset 0 0 6px rgba(0, 255, 0, 0.5);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8); /* Removed inset shadow */
     font-size: 1.2em;
     cursor: pointer;
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
     width: 100%;
     max-width: 300px;
     text-align: center;
-    text-shadow: 0 0 6px rgba(0, 255, 0, 0.5);
+    font-weight: bold; /* Make next button text bold */
 }
 
     #next-button:hover {
         background: linear-gradient(145deg, #444444, #333333);
         transform: translateY(-2px);
-        box-shadow: 0 8px 16px rgba(0, 255, 0, 1), inset 0 0 10px rgba(0, 255, 0, 0.7);
-        color: #00ff00;
+        box-shadow: 0 8px 16px #d4af37; /* Removed inset shadow */
+        color: #d4af37;
     }
 
     #next-button:active {
         background: linear-gradient(145deg, #222222, #111111);
         transform: translateY(4px);
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6), inset 0 0 4px rgba(0, 255, 0, 0.3);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6); /* Removed inset shadow */
     }
 
-/* Score Board */
-#score-board {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    background: #333;
-    color: #33ff33;
+/* Finish Button */
+#finish-button {
+    display: block;
+    background: linear-gradient(145deg, #333333, #222222);
+    color: #d4af37;
     padding: 15px;
+    margin-top: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-    text-align: center;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8); /* Removed inset shadow */
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
     width: 100%;
     max-width: 300px;
-    margin: 0 auto 20px;
-}
-
-/* Glowing Text (Replaced with Strong Dark Shadow) */
-#glowing-text {
-    color: #33ff33;
-    font-size: 1.2em;
     text-align: center;
-    margin-top: 20px;
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9);
-}
-
-/* Responsive Styles */
-@media (max-width: 600px) {
-    .quiz-container {
-        width: 100%;
-        padding: 10px;
-    }
-
-    #question-text {
-        font-size: 1em;
-    }
-
-    .answer-button {
-        font-size: 1em;
-    }
-}
-
-/* Finish Game Button */
-#finish-button {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s, transform 0.2s;
-    margin-top: 20px;
+    font-weight: bold; /* Make finish button text bold */
 }
 
     #finish-button:hover {
-        background-color: #c82333;
-        transform: scale(1.02);
+        background: linear-gradient(145deg, #444444, #333333);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px #d4af37; /* Removed inset shadow */
+        color: #d4af37;
     }
+
+    #finish-button:active {
+        background: linear-gradient(145deg, #222222, #111111);
+        transform: translateY(4px);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6); /* Removed inset shadow */
+    }
+
+/* Media Queries */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 20px; /* Smaller heading */
+    }
+
+    .btn {
+        font-size: 0.9em; /* Smaller button font */
+    }
+
+    .answer-button {
+        font-size: 1em; /* Smaller answer button font */
+    }
+}
