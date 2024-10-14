@@ -9,72 +9,62 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>English Typing</h1>
-            <button id="back-button">Back</button>
+    <div class="header">
+        <h3>Typing Practice Tool</h3>
+        <button id="back-button" class="back-button">Home</button>
+    </div>
+
+    <p id="text-sample">A</p> <!-- Initial display text will be "A" -->
+    <textarea id="user-input" placeholder="Start typing here..."></textarea>
+
+    <!-- Wrap Skip button and checkboxes in a single div -->
+    <div class="action-container">
+        <button id="skip-button" class="skip-button">Skip</button>
+        <div class="checkboxes">
+            <label>
+                <input type="checkbox" id="learn-checkbox" checked> Learn
+            </label>
+            <label>
+                <input type="checkbox" id="practice-checkbox"> Practice
+            </label>
         </div>
-    </header>
+    </div>
 
-    <section class="lesson-content">
-        <div class="container">
-            <!-- Typing practice tool -->
-            <div class="typing-tool">
-                <h3>Typing Practice Tool</h3>
-                <div class="text-to-type">
-                    <p id="text-sample">A</p> <!-- Initial display text will be "A" -->
-                </div>
-                <textarea id="user-input" placeholder="Start typing here..."></textarea>
-                <button id="skip-button">Skip</button>
-                <aside class="dropdowns">
-                    <div class="language-selector">
-                        <select id="language-dropdown" onchange="handleLanguageChange()">
-                            <option value="english">English</option>
-                            <option value="bengali">বাংলা</option>
-                        </select>
-
-                        <script>
-                            function handleLanguageChange() {
-                                const language = document.getElementById('language-dropdown').value;
-                                if (language === 'bengali') {
-                                    window.location.href = 'bntyping.html';
-                                                        }
-                            }
-                        </script>
-
-                    </div>
-                    <div class="level-selector">
-                        <select id="level-dropdown">
-                            <option value="level1">Level 1</option>
-                            <option value="level2">Level 2</option>
-                            <option value="level3">Level 3</option>
-                            <option value="az">A-Z</option>
-                            <option value="word">Word</option>
-                            <option value="sentence">Sentence</option>
-                        </select>
-                    </div>
-                </aside>
-                <p id="result"></p>
-            </div>
-
-            <!-- Checkboxes for Learn and Practice -->
-            <div class="checkboxes">
-                <label>
-                    <input type="checkbox" id="learn-checkbox" checked> Learn
-                </label>
-                <label>
-                    <input type="checkbox" id="practice-checkbox"> Practice
-                </label>
-            </div>
+    <aside class="dropdowns">
+        <div class="language-selector">
+            <select id="language-dropdown" onchange="handleLanguageChange()">
+                <option value="english">English</option>
+                <option value="bengali">বাংলা</option>
+            </select>
+            <script>
+                function handleLanguageChange() {
+                    const language = document.getElementById('language-dropdown').value;
+                    if (language === 'bengali') {
+                        window.location.href = 'bntyping.html'; // Redirect to Bengali typing page
+                    }
+                }
+            </script>
         </div>
-    </section>
+        <div class="level-selector">
+            <select id="level-dropdown">
+                <option value="level1">Level 1</option>
+                <option value="level2">Level 2</option>
+                <option value="level3">Level 3</option>
+                <option value="az">A-Z</option>
+                <option value="word">Word</option>
+                <option value="sentence">Sentence</option>
+            </select>
+        </div>
+    </aside>
+
+    <p id="result"></p>
 
     <script src="lesson1.js"></script> <!-- Updated path -->
     <script src="checkboxes.js"></script> <!-- Updated path -->
     <script>
         document.getElementById('back-button').addEventListener('click', function () {
-            window.location.href = 'index.html';
-            });
+            window.location.href = 'index.html'; // Redirect to home page
+        });
     </script>
 </body>
 </html>
