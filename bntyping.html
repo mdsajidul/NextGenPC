@@ -70,6 +70,13 @@
     <script src="word.js"></script> <!-- এখানে word.js -->
 
     <script>
+        function handleLanguageChange() {
+            const language = document.getElementById('language-dropdown').value;
+            if (language === 'english') {
+                window.location.href = 'lesson1.html'; // Redirect to Bengali typing page
+            }
+        }
+
         // Initialize variables
         const textSample = document.getElementById('text-sample');
         const userInput = document.getElementById('user-input');
