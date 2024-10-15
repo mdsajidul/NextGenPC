@@ -1,0 +1,104 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #f5f5f5;
+    background: linear-gradient(to right, #0a0a0a, #333333);
+    min-height: 100vh; /* Ensure it covers full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Padding to prevent content from touching edges */
+}
+
+/* Container Styles */
+.container {
+    text-align: center;
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Input Styles */
+input[type="text"] {
+    width: 100%; /* Full width for better responsiveness */
+    max-width: 700px; /* Limit width on larger screens */
+    height: 50px; /* Adjust height as needed */
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #333;
+    color: #f5f5f5;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    margin-bottom: 15px; /* Space between inputs */
+}
+
+    input[type="text"]:focus {
+        outline: none;
+        border-color: #d4af37;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
+    }
+
+/* Button Styles */
+.btn {
+    padding: 10px 20px; /* Button padding */
+    background: linear-gradient(145deg, #333333, #444444);
+    color: #f5f5f5;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Button shadow */
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+    .btn:hover {
+        background: linear-gradient(135deg, #1f1f1f, #3b3b3b);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 1);
+        color: #d4af37; /* Highlighted text color */
+    }
+
+/* Passion Button Styles */
+.passion-btn {
+    display: inline-block; /* To make buttons align next to each other */
+    margin: 5px; /* Space between buttons */
+    padding: 15px 30px; /* Padding for the passion buttons */
+    background: linear-gradient(145deg, #333333, #444444);
+    color: #f5f5f5;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Button shadow */
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+    .passion-btn:hover {
+        background: linear-gradient(135deg, #1f1f1f, #3b3b3b);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 1);
+        color: #d4af37; /* Highlighted text color */
+    }
+
+/* Hidden Class */
+.hidden {
+    display: none; /* Hide elements with this class */
+}
