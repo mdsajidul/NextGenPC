@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI ক্যালকুলেটর</title>
+    <link rel="stylesheet" href="emi.css"> <!-- CSS ফাইল সংযুক্ত করা হলো -->
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>EMI ক্যালকুলেটর</h1>
+        </div><br />
+        <form id="emi-form">
+            <h2>লোনের পরিমাণ (৳)</h2><br />
+            <input type="text" id="loan-amount" placeholder="লোনের পরিমাণ (৳)" required oninput="this.value = this.value.replace(/[^০-৯0-9]/g, '')"><br /><br />
+
+            <h2>বার্ষিক সুদের হার (%)</h2><br />
+            <input type="text" id="interest-rate" placeholder="বার্ষিক সুদের হার (%)" required oninput="this.value = this.value.replace(/[^০-৯0-9]/g, '')"><br /><br />
+
+            <h2>লোনের মেয়াদ (বছর)</h2><br />
+            <input type="text" id="loan-term" placeholder="লোনের মেয়াদ (বছর)" required oninput="this.value = this.value.replace(/[^০-৯0-9]/g, '')"><br /><br />
+            <button type="submit" class="btn">EMI হিসাব করুন</button>
+        </form>
+
+        <div id="result" class="hidden">
+            <h2>ফলাফল:</h2>
+            <p id="emi-amount"></p>
+            <p id="total-payment"></p>
+            <p id="total-interest"></p>
+        </div>
+    </div>
+
+    <script src="emi.js"></script> <!-- JavaScript ফাইল সংযুক্ত করা হলো -->
+</body>
+</html>
