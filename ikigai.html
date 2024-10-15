@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ikigai.css">
+    <title>আপনার জীবনের উদ্দেশ্য খুঁজুন</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Screen 1 -->
+        <div id="screen1">
+            <h2>আপনি কোন চারটি পেশা সবচেয়ে বেশি করতে ভালোবাসেন? <br /> ( যেমনঃ ডাক্টার, ইঞ্জিনিয়ার, ইউটিউবার ইত্যাদি )</h2>
+            <form id="ikigai-form">
+                <input type="text" placeholder="পেশা ১" required>
+                <input type="text" placeholder="পেশা ২" required>
+                <input type="text" placeholder="পেশা ৩" required>
+                <input type="text" placeholder="পেশা ৪" required><br />
+                <button type="submit" class="btn">সাবমিট করুন</button>
+            </form>
+        </div>
+
+        <!-- Screen 2 -->
+        <div id="screen2" class="hidden">
+            <h2>আপনি কোন কাজে সবচেয়ে ভালো?</h2>
+            <button id="passion2-1" class="passion-btn"></button>
+            <button id="passion2-2" class="passion-btn"></button>
+            <button id="passion2-3" class="passion-btn"></button>
+            <button id="passion2-4" class="passion-btn"></button>
+            <br /><br />
+            <button id="submit-btn" class="btn">সাবমিট করুন</button>
+            <button id="back-btn" class="btn">পিছনে ফিরে যান</button>
+        </div>
+
+        <!-- Screen 3 -->
+        <div id="screen3" class="hidden">
+            <h2>মানুষের কোন কাজে আপনার সাহায্য দরকার?</h2>
+            <button id="passion3-1" class="passion-btn"></button>
+            <button id="passion3-2" class="passion-btn"></button>
+            <button id="passion3-3" class="passion-btn"></button>
+            <br /><br />
+            <button id="final-submit-btn" class="btn">সাবমিট করুন</button>
+            <button id="back2-btn" class="btn">পিছনে ফিরে যান</button>
+        </div>
+
+        <!-- Screen 4 -->
+        <div id="screen4" class="hidden">
+            <h2>
+                কোন কাজ করে আপনি টাকা কামাতে পারবেন?
+            </h2>
+            <button id="next-step1" class="btn"></button>
+            <button id="next-step2" class="btn"></button>
+            <br /><br />
+            <button id="back3-btn" class="btn">পিছনে ফিরে যান</button> <!-- Added Back button here -->
+        </div>
+
+        <!-- Screen 5 -->
+        <div id="screen5" class="hidden">
+            <h1>আপনার জীবনের লক্ষ</h1>
+            <h1 id="life-goal"></h1> <!-- Placeholder for displaying text -->
+            <br /><br />
+            <button id="reset-btn" class="btn">আবার চেষ্টা করুন</button> <!-- Reset button -->
+        </div>
+
+    </div>
+
+    <script src="ikigai.js"></script>
+</body>
+</html>
