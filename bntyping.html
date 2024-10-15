@@ -11,8 +11,7 @@
 <body>
     <header>
         <div class="container">
-            <h1>Bangla Typing</h1>
-            <button id="back-button" onclick="location.href='index.html';">Back</button>
+            <button id="back-button" class="back-button" onclick="location.href='index.html';">Home</button>
         </div>
     </header>
 
@@ -20,12 +19,23 @@
         <div class="container">
             <!-- Typing practice tool -->
             <div class="typing-tool">
-                <h3 id="typing-tool-title">Typing Practice Tool</h3>
+                <h3 id="typing-tool-title"></h3>
                 <div class="text-to-type">
                     <p id="text-sample">আ</p> <!-- Initial display text will be "আ" -->
                 </div>
                 <textarea id="user-input" placeholder="Start typing here..."></textarea>
-                <button id="skip-button">Skip</button>
+                <div class="action-container">
+                    <button id="skip-button" class="skip-button">Skip</button>
+                    <!-- Checkboxes for Learn and Practice -->
+                    <div class="checkboxes" id="checkboxContainer">
+                        <label>
+                            <input type="checkbox" id="learn-checkbox" checked> Learn
+                        </label>
+                        <label>
+                            <input type="checkbox" id="practice-checkbox"> Practice
+                        </label>
+                    </div>
+                </div>
                 <aside class="dropdowns">
                     <div class="language-selector">
                         <select id="language-dropdown" onchange="handleLanguageChange()">
@@ -44,21 +54,11 @@
                             </optgroup>
                             <option value="juktabarna">যুক্তবর্ণ</option>
                             <option value="shobdo">শব্দ</option>
-                            <option value="bakko"></option>
+                            <option value="bakko">বাক্য</option>
                         </select>
                     </div>
                 </aside>
                 <p id="result"></p>
-            </div>
-
-            <!-- Checkboxes for Learn and Practice -->
-            <div class="checkboxes">
-                <label>
-                    <input type="checkbox" id="learn-checkbox" checked> Learn
-                </label>
-                <label>
-                    <input type="checkbox" id="practice-checkbox"> Practice
-                </label>
             </div>
         </div>
     </section>
@@ -76,12 +76,12 @@
         const resultDisplay = document.getElementById('result');
         const skipButton = document.getElementById('skip-button');
         const levelDropdown = document.getElementById('level-dropdown');
+        const checkboxContainer = document.getElementById('checkboxContainer');
 
         // Words array for "শব্দ" level
         const words = [
             "বাংলা", "বাংলাদেশ", "আমার", "তোমার", "বৃষ্টি", "সূর্য", "চাঁদ", "রাত", "দেওয়াল",
             "গাছ", "ফুল", "পাখি", "মেঘ", "নদী", "সাগর", "ভালো", "মিষ্টি", "শান্তি", "স্বপ্ন", "বন্ধুত্ব", "কবি", "গান", "ছবি", "কথা", "আকাশ", "পাতা", "জল", "ভ্রমণ"
-            // Add more words as needed
         ];
 
         // Sentences array for "বাক্য" level
@@ -91,7 +91,6 @@
             'আজ আবহাওয়া খুব ভালো।',
             'আমরা আগামীকাল সিনেমা দেখতে যাব।',
             'তুমি কি আমাকে সাহায্য করতে পারবে?'
-            // Add more sentences as needed
         ];
 
         let currentIndex = 0;
@@ -113,17 +112,29 @@
         levelDropdown.addEventListener('change', () => {
             currentIndex = 0; // Reset index to 0 whenever the level changes
             updateWordSample(); // Update the sample text
+            toggleCheckboxes(); // Toggle checkbox visibility based on selected level
         });
+
+        // Function to toggle checkbox visibility
+        function toggleCheckboxes() {
+            const selectedLevel = levelDropdown.value; // Get the selected level
+
+            if (selectedLevel === 'shobdo' || selectedLevel === 'bakko') {
+                checkboxContainer.style.display = 'none'; // Hide checkboxes
+            } else {
+                checkboxContainer.style.display = 'block'; // Show checkboxes
+            }
+        }
 
         // Check user input and skip automatically if correct
         function checkUserInput() {
             const textToType = textSample.textContent;
 
             // If user input matches the full text or auto-skip characters
-            if (userInput.value === textToType || autoSkipChars.includes(userInput.value.slice(-1))) {
+            if (userInput.value === textToType) {
                 resultDisplay.textContent = 'Correct! Skipping to the next character...';
                 skipButton.click();  // Programmatically trigger skip button click
-            } else if (userInput.value.length > textSample.textContent.length) {
+            } else if (userInput.value.length > textToType.length) {
                 resultDisplay.innerHTML = `<span style="color: red;">Mistyped! You Typed: ${userInput.value}</span>`;
                 userInput.value = ''; // Clear the input field
             }
@@ -137,20 +148,9 @@
             resultDisplay.textContent = ''; // Clear the result display
         });
 
-        // JavaScript to manage checkbox visibility based on selected level
-        levelDropdown.addEventListener('change', function () {
-            const selectedLevel = this.value;
-            const checkboxContainer = document.querySelector('.checkboxes');
-
-            if (selectedLevel === 'shobdo') {
-                checkboxContainer.style.display = 'none'; // Hide checkboxes
-            } else {
-                checkboxContainer.style.display = ''; // Show checkboxes
-            }
-        });
-
         // Initialize the text sample when the page loads
         updateWordSample();
+        toggleCheckboxes(); // Ensure checkbox visibility is set on page load
     </script>
 </body>
 </html>
