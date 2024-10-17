@@ -1,189 +1,61 @@
-/* Basic Styles */
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #475747; /* Deep greenish background */
-    text-align: center;
-    color: #ffffff; /* White text color */
-    min-height: 100vh; /* Ensures the body is at least the height of the viewport */
-    margin: 0;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-header {
-    margin-bottom: 40px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow for the header */
-}
-
-h1 {
-    font-size: 2.5rem; /* Slightly smaller on large screens */
-    color: #f0f0f0; /* Light gray for the main heading */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Strong text shadow for the heading */
-    padding: 10px;
-}
-
-h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #ffcc00; /* Golden yellow for the subheading */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Strong text shadow for the subheading */
-    margin-top: -2%;
-    padding: 10px;
-}
-
-/* Button container for centering the Next button */
-.button-container {
-    margin: 30px 0; /* Top and bottom margin */
-    display: flex; /* Enable flexbox */
-    justify-content: center; /* Center align the button */
-    width: 100%; /* Ensure it takes full width for centering */
-}
-
-button {
-    font-size: 1.5rem;
-    background-color: #27ae60; /* Button background color */
-    color: white;
-    border: none;
-    padding: 15px 30px; /* Vertical and horizontal padding */
-    margin: 0 10px; /* Horizontal margin only */
-    border-radius: 10px; /* Rounded corners */
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth color and shadow transition */
-    min-width: 200px; /* Set a minimum width for all buttons */
-    height: 60px; /* Set a fixed height for all buttons */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Strong shadow effect */
-}
-
-    button:hover {
-        background-color: #2ecc71; /* Hover effect */
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7); /* Stronger shadow effect on hover */
-    }
-
-.content-section {
-    display: none; /* Initially hidden */
-    margin-top: 40px;
-}
-
-    .content-section p {
-        font-size: 1.2rem;
-        line-height: 1.6; /* Better readability */
-        color: #dcdcdc; /* Gainsboro for paragraph text */
-    }
-
-/* Sidebar styles with strong shadow effect */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -250px; /* Sidebar hidden off-screen */
-    width: 250px;
-    height: 100%;
-    background-color: #475747; /* Background color matching the body */
-    color: #ffffff; /* White text color */
-    padding: 20px;
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5); /* Strong shadow effect for the sidebar */
-    transition: left 0.3s ease; /* Transition effect for showing/hiding */
-}
-
-    /* Sidebar link styles */
-    .sidebar a {
-        color: #ffffff; /* White text color */
-        text-decoration: none; /* No underline */
-        display: block; /* Block display for links */
-        margin: 10px 0; /* Margin for spacing */
-        font-size: 1.2rem; /* Font size */
-        transition: color 0.3s; /* Transition effect for color change */
-    }
-
-        /* Change color on hover */
-        .sidebar a:hover {
-            color: #ffcc00; /* Change to golden color on hover */
-        }
-
-.line {
-    height: 4px;
-    width: 25px;
-    background-color: #ffffff; /* White lines for the menu icon */
-    margin: 4px 0; /* Space between lines */
-}
-
-/* Menu bar styling */
-.menu-bar {
-    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    color: #f5f5f5;
+    background: linear-gradient(to right, #0a0a0a, #333333);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    position: absolute; /* Change to absolute positioning */
-    top: 20px; /* Distance from the top */
-    left: 20px; /* Distance from the left */
-    z-index: 1000; /* Ensures the menu icon is on top of other elements */
-    padding: 0; /* Remove padding if any */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-/* Responsive design for mobile */
-@media (max-width: 768px) {
-    .menu-bar {
-        display: flex; /* Show the menu bar in mobile view */
-    }
-
-    h1 {
-        font-size: 2rem; /* Smaller font size for mobile */
-    }
-
-    h2 {
-        font-size: 1.5rem; /* Smaller subheading font size */
-    }
-
-    button {
-        font-size: 1.2rem;
-        padding: 12px 24px;
-        min-width: 150px; /* Adjust button width for mobile */
-        height: 50px; /* Adjust button height for mobile */
-    }
-
-    .sidebar {
-        width: 100%; /* Full width sidebar for mobile */
-        left: -100%; /* Hide sidebar off-screen on mobile */
-    }
+/* Header Styles */
+.header h1 {
+    font-size: 36px;
+    color: #d4af37;
+    text-align: center;
+    margin-top: 10px;
 }
 
-@media (max-width: 480px) {
-    .button-container {
-        flex-direction: column; /* Stack buttons vertically on small screens */
-    }
-
-    button {
-        margin: 10px 0; /* Add top and bottom margin for stacked buttons */
-    }
+/* Hadith Display */
+#hadith-display {
+    font-size: 24px;
+    color: #f5f5f5;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 20px;
 }
 
-/* Slider styling */
-#fontSizeSlider {
-    width: 100%; /* Full width of sidebar */
-    margin-top: 10px; /* Space above the slider */
+/* Button Styles */
+.button-container {
+    text-align: center; /* বাটন সেন্টার অ্যালাইন */
 }
 
-.sidebar div {
-    margin-top: 20px; /* Space between menu and slider */
+.btn {
+    padding: 15px 30px;
+    background: linear-gradient(145deg, #333333, #444444);
+    color: #f5f5f5;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    margin: 10px 0;
 }
 
-#hadithText, #duaText {
-    font-size: 1.5rem; /* Default font size */
-    color: #ffffff; /* Light golden color */
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); /* Strong shadow for floating effect */
-    transition: transform 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
-}
-
-    /* Adding a hover effect to enhance the floating appearance */
-    #hadithText:hover, #duaText:hover {
-        transform: translateY(-5px); /* Slightly lift up the text */
-        text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); /* Stronger shadow on hover */
+    .btn:hover {
+        background: linear-gradient(135deg, #1f1f1f, #3b3b3b);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 1);
+        color: #d4af37;
     }
