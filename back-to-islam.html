@@ -1,52 +1,24 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Content Display</title>
-    <link rel="stylesheet" href="back-to-islam.css">
+    <title>ইসলামে ফিরে আসা</title>
+    <link rel="stylesheet" href="back-to-islam.css"> <!-- CSS ফাইল সংযুক্ত করা হলো -->
 </head>
 <body>
-    <header>
-       <h1>ফিরে এসো ইসলামের পথে</h1>
-<h2>যেকোনো একোটি সিলেক্ট করুন</h2>
-        <div class="menu-bar" id="menuBar">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-        </div>
-    </header>
-
     <div class="container">
-        <div class="button-container">
-            <button id="hadithButton">হাদিস</button>
-            <button id="duaButton">দোয়া</button>
-        </div>
+        <div class="header">
+        </div><br />
 
-        <div class="content-section" id="quranSection">
-            <p id="quranText"></p>
-        </div>
-        <div class="content-section" id="hadithSection">
-            <p id="hadithText"></p>
-        </div>
-        <div class="content-section" id="duaSection">
-            <p id="duaText"></p>
-        </div>
-
-        <div class="button-container">
-            <button id="nextButton">পরবর্তী</button>
+        <div class="screen1">
+            <h1 id="hadith-display">কষ্টের পরে অবশ্যই সচ্ছলতা আসবে। (সূরা আশ-শারহ: ৬)</h1> <!-- প্রথম হাদিস প্রদর্শন -->
+            <div class="button-container">
+                <button id="change-hadith" class="btn">পরিবর্তন করুন</button> <!-- কেন্দ্র-সারিবদ্ধ বাটন -->
+            </div>
         </div>
     </div>
 
-    <div class="sidebar" id="sidebar">
-        <h2>Menu</h2>
-        <div>
-            <label for="fontSizeSlider">ফন্ট সাইজ:</label>
-            <input type="range" id="fontSizeSlider" min="12" max="60" value="25">
-            <span id="fontSizeValue">16px</span>
-        </div>
-    </div>
-
-    <script src="back-to-islam.js"></script>
+    <script src="back-to-islam.js"></script> <!-- JavaScript ফাইল সংযুক্ত করা হলো -->
 </body>
 </html>
