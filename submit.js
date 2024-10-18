@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Create FormData object
         const formData = new FormData(signupForm);
 
-        fetch("https://script.google.com/macros/s/AKfycbxGufKEpmlehGVkrL0Q84NBZQEnmm4MpGYYTX5REGFNqgSrT7RY0bhBV03dhOsrFYUa/exec", {  // Replace "YOUR_WEB_APP_URL_HERE" with the actual Google Apps Script URL
+        fetch("https://script.google.com/macros/s/AKfycbxufseOVSnPZc1fM3_YLr5pXzl_dYhgtzw7iGjg6uGedaAxQZnslbyoz6wHpZItkNb7/exec", {  // Replace "YOUR_WEB_APP_URL_HERE" with the actual Google Apps Script URL
             method: 'POST',
             body: formData,
         })
