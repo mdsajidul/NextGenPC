@@ -12,21 +12,35 @@
     <section class="signup">
         <div class="container">
             <form id="signup-form" method="post" action="https://script.google.com/macros/s/AKfycbzvOWG0BtvCbyLPsG5NmzaD6U7qydWfC816OxkO78Eb7zckMh_lQ48Zxx46f3MYUfWY/exec">
-<h3>কী কী টুলস যোগ করা যেতে পারে</h3> <br />
+                <h3>কী কী টুলস যোগ করা যেতে পারে</h3> <br />
                 <label for="contact">Tool এর নাম:</label>
-                <input type="text" id="contact" name="contact" placeholder="নতুন Tool এর নাম লিখুন" >
+                <input type="text" id="contact" name="contact" placeholder="নতুন Tool এর নাম লিখুন">
 
                 <label for="name">বিস্তারিত লিখুন:</label>
-                <input type="text" id="name" name="name" placeholder="নতুন Tool সম্পর্কে বিস্তারিত লিখুন" ><br /><br />
+                <textarea type="text" id="name" name="name" placeholder="নতুন Tool সম্পর্কে বিস্তারিত লিখুন"></textarea><br /><br />
 
-<h3>বর্তমানে ব্যবহৃত টুলস সম্পর্কে পরামর্শ</h3> <br />
+                <h3>বর্তমানে ব্যবহৃত টুলস সম্পর্কে পরামর্শ</h3> <br />
 
 
                 <label for="password">টুলস এর নাম:</label>
-                <input type="text" id="password" name="password" placeholder="টুলস এর নাম লিখুন..." >
+
+                <select id="password" name="password">
+                    <option value="" disabled selected>একটি টুল নির্বাচন করুন</option>
+                    <option value="টাইপিং">টাইপিং</option>
+                    <option value="কুইজ">কুইজ</option>
+                    <option value="গেমস">গেমস</option>
+                    <option value="মন খারাপ">মন খারাপ</option>
+                    <option value="BMI নির্নয়">BMI নির্নয়</option>
+                    <option value="BMX নির্নয়">BMX নির্নয়</option>
+                    <option value="বয়স নির্নয়">বয়স নির্নয়</option>
+                    <option value="Word Counter">Word Counter</option>
+                    <option value="জীবনের উদ্দেশ্য">জীবনের উদ্দেশ্য</option>
+                    <option value="EMI ক্যালকুলাটর">EMI ক্যালকুলাটর</option>
+                    <option value="আপনার মতামত">আপনার মতামত</option>
+                </select>
 
                 <label for="confirm-password">পরামর্শ:</label>
-                <input type="text" id="confirm-password" name="confirm-password" placeholder="আপনার পরামর্শ লিখুন..." >
+                <textarea type="text" id="confirm-password" name="confirm-password" placeholder="আপনার পরামর্শ লিখুন..."></textarea>
 
                 <button type="submit" class="btn">পাঠান</button>
             </form>
