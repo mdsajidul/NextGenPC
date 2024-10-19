@@ -1,0 +1,189 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #f5f5f5;
+    background: linear-gradient(135deg, #0a0a0a, #333333);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #222;
+    padding: 15px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+    header h1 {
+        color: #d4af37;
+        font-size: 1.8em;
+        margin-right: auto;
+    }
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav a {
+    color: #f5f5f5;
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.2s;
+    font-weight: 500;
+}
+
+    nav a:hover {
+        color: #d4af37;
+        transform: scale(1.05);
+    }
+
+/* Main Content Styles */
+main {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px 0;
+}
+
+section {
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+    section h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    section p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+/* Button Styles */
+button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #d4af37, #b5942a);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    font-size: 1em;
+}
+
+    button:hover {
+        background: linear-gradient(135deg, #b5942a, #d4af37);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+/* Custom Scrollbar Styles for WebKit Browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #444; /* Track color */
+    border-radius: 8px; /* Rounded corners for track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d4af37; /* Scrollbar thumb color */
+    border-radius: 8px; /* Rounded corners for thumb */
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #b5942a; /* Color on hover */
+    }
+
+/* Custom Scrollbar Styles for Firefox */
+* {
+    scrollbar-width: thin; /* Make scrollbar thin */
+    scrollbar-color: #d4af37 #444; /* Thumb color and track color */
+}
+
+/* Media Queries for Responsiveness */
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+        header h1 {
+            font-size: 1.5em; /* Adjust font size for smaller screens */
+            margin-bottom: 10px; /* Space below the title */
+        }
+
+    nav ul {
+        flex-direction: column; /* Stack navigation links vertically */
+        width: 100%; /* Full width for navigation */
+    }
+
+    nav a {
+        padding: 10px; /* Adjust padding for smaller screens */
+        width: 100%; /* Full-width links */
+        text-align: center; /* Center text */
+    }
+
+    section {
+        padding: 15px; /* Less padding in sections */
+    }
+
+        section h2 {
+            font-size: 24px; /* Smaller section title */
+        }
+
+        section p {
+            font-size: 14px; /* Smaller paragraph text */
+        }
+
+    button {
+        width: 100%; /* Full-width buttons on small screens */
+        margin: 10px 0; /* Space between buttons */
+    }
+}
+
+/* For larger screens */
+@media (min-width: 1200px) {
+    header h1 {
+        font-size: 2em; /* Increase font size for larger screens */
+    }
+
+    nav a {
+        font-size: 1.1em; /* Larger font size for navigation links */
+    }
+
+    section h2 {
+        font-size: 32px; /* Larger section title */
+    }
+
+    section p {
+        font-size: 18px; /* Larger paragraph text */
+    }
+
+    button {
+        font-size: 1.1em; /* Larger button text */
+    }
+}

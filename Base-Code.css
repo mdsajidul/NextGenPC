@@ -1,0 +1,266 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #f5f5f5;
+    background: linear-gradient(to right, #0a0a0a, #333333);
+    min-height: 100vh; /* Ensure it covers full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Padding to prevent content from touching edges */
+}
+
+/* Header Styles */
+.header {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between elements */
+    width: 100%; /* Full width of the screen */
+    padding: 0 20px; /* Optional padding for better spacing */
+    position: relative; /* Position relative for absolute button placement */
+}
+
+    .header h3 {
+        flex: 1; /* Take up all available space */
+        text-align: center; /* Center the heading */
+        color: #d4af37; /* Heading color */
+        margin: 0; /* Remove default margin */
+    }
+
+/* Main Heading */
+h3 {
+    font-size: 24px;
+}
+
+/* Button Styles */
+.btn, .back-button, .skip-button {
+    padding: 10px 20px; /* Adjust padding for smaller buttons */
+    background: linear-gradient(145deg, #333333, #444444);
+    color: #f5f5f5;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Button shadow */
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    margin: 10px 5px; /* Space between buttons */
+}
+
+.back-button {
+    margin-left: auto; /* Align back button to the left */
+}
+
+.skip-button {
+    margin-top: 2%;
+    margin-left: auto; /* Align skip button to the right */
+}
+
+    .btn:hover, .back-button:hover, .skip-button:hover {
+        background: linear-gradient(135deg, #1f1f1f, #3b3b3b);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 1);
+        color: #d4af37; /* Highlighted text color */
+    }
+
+/* Text Sample */
+#text-sample {
+    font-size: 35px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Textarea Styles */
+textarea {
+    width: 100%; /* Full width for better responsiveness */
+    max-width: 700px; /* Limit width on larger screens */
+    height: 150px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    resize: none;
+    background-color: #333;
+    color: #f5f5f5;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+    textarea:focus {
+        outline: none;
+        border-color: #d4af37;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
+    }
+
+/* Dropdown Styles */
+.dropdowns {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 700px; /* Limit width on larger screens */
+    flex-wrap: wrap; /* Wrap dropdowns on smaller screens */
+}
+
+.language-selector, .level-selector {
+    flex: 1;
+    margin-right: 10px; /* Space between the two dropdowns */
+}
+
+    .language-selector select,
+    .level-selector select {
+        width: 100%; /* Full width for dropdowns */
+        padding: 15px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #444;
+        border-radius: 8px;
+        font-size: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 20px;
+        cursor: pointer;
+        appearance: none;
+        background-image: linear-gradient(135deg, #1f1f1f, #3b3b3b), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 5"><path fill="white" d="M0 0l5 5 5-5z"/></svg>');
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+    }
+
+        .language-selector select:hover,
+        .level-selector select:hover {
+            background-color: #444;
+            border-color: #d4af37;
+            color: #d4af37;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+        }
+
+        .language-selector select:focus,
+        .level-selector select:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
+        }
+
+    .language-selector:last-child,
+    .level-selector:last-child {
+        margin-right: 0;
+    }
+
+/* Checkbox Styles */
+.checkboxes {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px; /* Limit checkbox width on larger screens */
+}
+
+    .checkboxes label {
+        margin-right: 35px; /* Space between checkboxes */
+        color: #f5f5f5; /* Checkbox label color */
+    }
+
+/* Additional checkbox styles */
+input[type="checkbox"] {
+    transform: scale(1.5); /* Change size if needed */
+    margin-right: 5px; /* Space between checkbox and label */
+}
+
+/* Result Text */
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Action Container */
+.action-container {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center align items horizontally */
+    margin-top: 20px; /* Space above the action container */
+}
+
+/* Error Message Styles */
+.error-message {
+    color: red; /* Red color for error messages */
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* Label Text Styles */
+.label-text {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #f5f5f5;
+    margin-bottom: 10px;
+}
+
+/* Custom Scrollbar Styles for WebKit Browsers */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+    height: 12px; /* Height of the scrollbar (for horizontal scrollbar) */
+}
+
+::-webkit-scrollbar-track {
+    background: #222; /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #d4af37; /* Color of the thumb on hover */
+    }
+
+/* Media Queries for Responsiveness */
+
+/* For smaller screens like phones */
+@media (max-width: 768px) {
+    .back-button,
+    .skip-button {
+        width: 100%; /* Full-width buttons on small screens */
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .dropdowns {
+        flex-direction: column; /* Stack dropdowns vertically */
+        width: 100%;
+    }
+
+    .language-selector,
+    .level-selector {
+        margin-right: 0; /* Remove margin on small screens */
+    }
+}
+
+/* For larger screens */
+@media (min-width: 1200px) {
+    h3 {
+        font-size: 32px; /* Increase heading size */
+    }
+
+    .back-button,
+    .skip-button {
+        padding: 13px 40px; /* Larger buttons */
+        font-size: 1.2em;
+    }
+
+    textarea {
+        font-size: 18px; /* Larger text */
+        padding: 15px;
+    }
+}
