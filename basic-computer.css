@@ -70,7 +70,8 @@ body {
     }
 
     /* Add spacing between list items */
-    .content ol, .content ul {
+    .content ol,
+    .content ul {
         margin-bottom: 20px; /* Space below each list */
     }
 
@@ -104,6 +105,30 @@ body {
         background: #d4af37;
     }
 
+/* basic-computer.css */
+
+/* Existing styles remain the same... */
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    margin-bottom: 20px; /* Space below the menu icon */
+}
+
+.line {
+    height: 4px; /* Thickness of the lines */
+    width: 30px; /* Length of the lines */
+    background-color: #d4af37; /* Line color */
+    margin: 3px 0; /* Space between lines */
+}
+
+/* Hide sidebar styles */
+.sidebar.hidden {
+    display: none; /* Hide the sidebar when this class is added */
+}
+
+
 #backToTop {
     position: fixed;
     bottom: 20px;
@@ -116,3 +141,5 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+
+
