@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Page</title>
+    <link rel="stylesheet" href="basic-computer.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Chapters</h2>
+        <ul>
+            <li><a href="#" onclick="showContent('chapter1')" aria-label="Go to Chapter 1: File Opening Methods" class="active"><i class="fas fa-book"></i> ফাইল ওপেন করার যেসব পদ্ধতি বেশি ব্যবহার করা হয়</a></li>
+            <li><a href="#" onclick="showContent('chapter2')" aria-label="Go to Chapter 2: Rename File or Folder"><i class="fas fa-book"></i> ফাইল বা ফোল্ডার এর নাম পরিবর্তন</a></li>
+            <li><a href="#" onclick="showContent('chapter3')" aria-label="Go to Chapter 3: Open Two Folders with Same Name"><i class="fas fa-book"></i> একই নামে দুইটা ফোল্ডার খোলা</a></li>
+            <li><a href="#" onclick="showContent('chapter4')" aria-label="Go to Chapter 4: Change Icon"><i class="fas fa-book"></i> Icon Change করা</a></li>
+            <li><a href="#" onclick="showContent('chapter5')" aria-label="Go to Chapter 5: Hide File or Folder using Icon Change"><i class="fas fa-book"></i> আইকন চেঞ্জ করার মাধ্যমে ফাইল বা ফোল্ডার হাইড করা</a></li>
+            <li><a href="#" onclick="showContent('chapter6')" aria-label="Go to Chapter 6: Hide Icon"><i class="fas fa-book"></i> আইকন হাইড করা</a></li>
+            <li><a href="#" onclick="showContent('chapter7')" aria-label="Go to Chapter 7: Restore Hidden Files or Folders"><i class="fas fa-book"></i> হাইড করা ফাইল বা ফোল্ডার ফিরিয়ে আনা</a></li>
+            <li><a href="#" onclick="showContent('chapter8')" aria-label="Go to Chapter 8: Create Shutdown Shortcut"><i class="fas fa-book"></i> শাট ডাউন শর্টকাট তৈরি করা</a></li>
+            <li><a href="#" onclick="showContent('chapter9')" aria-label="Go to Chapter 9: Lock File or Folder"><i class="fas fa-book"></i> ফাইল বা ফোল্ডার লক করা</a></li>
+            <li><a href="#" onclick="showContent('chapter10')" aria-label="Go to Chapter 10: Zip File or Folder"><i class="fas fa-book"></i> ফাইল বা ফোল্ডার জিপ করা</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div id="text-sample">
+            <!-- Content will be displayed here based on sidebar selection -->
+        </div>
+    </div>
+
+    <button id="backToTop" style="display: none;">Back to Top</button>
+
+    <script src="basic-computer.js"></script>
+</body>
+</html>

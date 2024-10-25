@@ -1,0 +1,118 @@
+/* basic-computer.css */
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(to right, #0a0a0a, #333333);
+    color: #f5f5f5;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #222;
+    padding: 20px;
+}
+
+    .sidebar h2 {
+        margin-bottom: 20px;
+        color: #d4af37;
+    }
+
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar li {
+        margin: 10px 0;
+    }
+
+    .sidebar a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        background-color: #444;
+        color: #f5f5f5;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+        width: 100%;
+        height: 50px;
+        box-sizing: border-box;
+    }
+
+        .sidebar a i {
+            margin-right: 10px;
+        }
+
+        /* Hover effect for active button */
+        .sidebar a.active,
+        .sidebar a.active:hover {
+            background-color: #d4af37; /* Maintain hover effect color */
+            color: #222; /* Maintain hover text color */
+        }
+
+        .sidebar a:hover {
+            background-color: #555; /* Change background color on hover for non-active buttons */
+        }
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+    /* Add spacing between paragraphs */
+    .content p {
+        margin-bottom: 20px; /* Space below each paragraph */
+    }
+
+    /* Add spacing between list items */
+    .content ol, .content ul {
+        margin-bottom: 20px; /* Space below each list */
+    }
+
+        /* Add space between items in ordered lists */
+        .content ol li {
+            margin-bottom: 10px; /* Space below each list item */
+        }
+
+        /* Add space between items in unordered lists */
+        .content ul li {
+            margin-bottom: 10px; /* Space below each list item */
+        }
+
+/* Custom Scrollbar Styles for WebKit Browsers */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #d4af37;
+    }
+
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; /* Initially hidden */
+    padding: 10px 15px;
+    background-color: #d4af37;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
