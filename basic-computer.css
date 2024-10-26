@@ -18,6 +18,7 @@ body {
     overflow-y: auto; /* Enable vertical scrolling */
 }
 
+    /* Sidebar heading styling */
     .sidebar h2 {
         margin-bottom: 20px;
         color: #d4af37;
@@ -152,3 +153,47 @@ body {
         transform: scale(1.1); /* Slight enlargement on hover */
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
     }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column; /* Stack sidebar and content vertically */
+    }
+
+    .sidebar {
+        width: 100%; /* Full width on small screens */
+        height: auto; /* Let height adjust according to content */
+    }
+
+    .content {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .sidebar h2 {
+        font-size: 20px; /* Adjust heading size */
+    }
+
+    .sidebar a {
+        height: auto; /* Auto height for buttons */
+        padding: 10px; /* Reduce padding */
+    }
+}
+
+/* For very small devices, like phones */
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 10px; /* Adjust padding for sidebar */
+    }
+
+    .menu-icon {
+        margin-bottom: 10px; /* Adjust space for menu icon */
+    }
+
+    .line {
+        width: 25px; /* Smaller lines for mobile */
+    }
+
+    #backToTop {
+        padding: 8px 12px; /* Smaller button size */
+    }
+}
