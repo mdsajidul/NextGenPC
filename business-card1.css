@@ -1,0 +1,204 @@
+body {
+    background-color: #f4f4f4; /* Light gray background */
+    font-family: 'Arial', sans-serif; /* Modern sans-serif font */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    flex-direction: column; /* Stack content vertically */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    padding-top: 20px; /* Add padding at the top */
+}
+
+h1 {
+    margin-bottom: 20px; /* Margin for heading */
+}
+
+.input-form {
+    margin-bottom: 40px; /* Spacing below form */
+}
+
+label {
+    display: block; /* Block display for labels */
+    margin-top: 10px; /* Margin for spacing */
+}
+
+input {
+    width: 100%; /* Full width for input fields */
+    max-width: 300px; /* Limit width for larger screens */
+    padding: 10px; /* Padding inside input fields */
+    margin-top: 5px; /* Margin for spacing */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ccc; /* Border style */
+}
+
+button {
+    padding: 10px 20px; /* Button padding */
+    margin-top: 20px; /* Margin for spacing */
+    background-color: #007BFF; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Transition effect */
+}
+
+    button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+
+/* Print container styles */
+.print-container {
+    display: none; /* Hide by default */
+    justify-content: center; /* Center contents */
+    align-items: center; /* Center contents */
+    flex-direction: column; /* Stack vertically */
+    width: 100%; /* Full width */
+    max-width: 500px; /* Limit max width for better appearance */
+    margin: 0 auto; /* Center container */
+}
+
+.business-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%; /* Full width */
+    max-width: 450px; /* Limit width to business card size */
+    height: auto; /* Automatic height */
+    margin: 0 auto; /* Center the card */
+}
+
+.card-section {
+    border-radius: 10px; /* Slightly less rounded */
+    width: 100%; /* Full width for sections */
+    height: 250px; /* Standard height for business card */
+    margin-bottom: 20px; /* Spacing between front and back */
+    overflow: hidden; /* Hide overflow for rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Shadow effect */
+    display: flex; /* Flexbox for vertical alignment */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+.front {
+    background: linear-gradient(145deg, #1d1d1d, #2e2e2e); /* Dark gradient for front */
+    color: #f0c36d; /* Light gold color for text */
+}
+
+.back {
+    background: linear-gradient(145deg, #2a2a2a, #3b3b3b); /* Slightly lighter for back */
+    color: #d4af37; /* Darker gold color */
+}
+
+.card-content {
+    text-align: center; /* Centered text */
+    padding: 20px; /* Padding for content */
+}
+
+h1 {
+    font-size: 30px; /* Font size for name */
+    color: #d4af37; /* Gold color for text */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow */
+    margin: 0; /* Reset margin */
+}
+
+h2 {
+    font-size: 20px; /* Font size for position */
+    color: #f0c36d; /* Light gold color */
+    font-style: italic; /* Italic style */
+    margin: 5px 0; /* Margin for spacing */
+}
+
+h3 {
+    font-size: 18px; /* Font size for company name */
+    color: #d4af37; /* Gold color */
+    font-weight: bold; /* Bold text */
+    margin: 10px 0; /* Margin for spacing */
+    border-top: 1px solid #555; /* Top border */
+    padding-top: 10px; /* Padding for top */
+}
+
+.contact-info p {
+    margin: 5px 0; /* Margin for contact info */
+}
+
+.tagline {
+    font-size: 18px; /* Font size for tagline */
+    margin-top: 20px; /* Margin for spacing */
+}
+
+.download-btn {
+    margin-top: 20px; /* Margin for spacing */
+    padding: 10px 20px; /* Button padding */
+    background-color: #28a745; /* Green button */
+    color: #fff; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease; /* Transition effect */
+}
+
+    .download-btn:hover {
+        background-color: #218838; /* Darker green on hover */
+    }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding-top: 10px; /* Reduce top padding for smaller screens */
+    }
+
+    input {
+        max-width: 100%; /* Full width for input fields on smaller screens */
+    }
+
+    .business-card {
+        max-width: 90%; /* Allow the card to be wider on smaller screens */
+    }
+
+    .card-section {
+        height: 220px; /* Adjust height for smaller screens */
+    }
+
+    h1 {
+        font-size: 28px; /* Adjust font size */
+    }
+
+    h2 {
+        font-size: 18px; /* Adjust font size */
+    }
+
+    h3 {
+        font-size: 16px; /* Adjust font size */
+    }
+
+    .tagline {
+        font-size: 16px; /* Adjust font size */
+    }
+
+    button {
+        width: 100%; /* Full width for buttons */
+    }
+
+    .download-btn {
+        width: 100%; /* Full width for download button */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px; /* Further adjust font size for small screens */
+    }
+
+    h2 {
+        font-size: 16px; /* Further adjust font size */
+    }
+
+    h3 {
+        font-size: 14px; /* Further adjust font size */
+    }
+
+    .card-section {
+        height: 200px; /* Further adjust height for smaller screens */
+    }
+}
