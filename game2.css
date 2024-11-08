@@ -1,0 +1,156 @@
+﻿/* Basic styling for the body */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1c1c1c;
+    color: #fff;
+    height: 100vh;
+    justify-content: center;
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+h1, p {
+    text-align: center;
+    margin: 5px;
+}
+
+/* Flex container for buttons to place them in a single row */
+.button-container {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    margin-top: 10px;
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #333;
+    border: 2px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#restart-button:disabled {
+    background-color: #777;
+    border-color: #777;
+    cursor: not-allowed;
+}
+
+#pause-resume-button {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+/* Speed control slider styling */
+.speed-control {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    color: #fff;
+}
+
+    .speed-control label {
+        margin-right: 10px;
+        font-size: 1em;
+    }
+
+#speed-slider {
+    width: 150px;
+}
+
+/* Hover effects for buttons */
+button:hover:not(:disabled) {
+    background-color: #555;
+    border-color: #555;
+}
+
+#pause-resume-button:hover:not(:disabled) {
+    background-color: #45a049;
+    border-color: #45a049;
+}
+
+#restart-button:hover:not(:disabled) {
+    background-color: #ff5733;
+    border-color: #ff5733;
+}
+
+/* Game area styling */
+#game-area {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #333, #555);
+    border: 3px solid #444;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#player, #ai {
+    position: absolute;
+    width: 3vw;
+    height: 3vw;
+    max-width: 30px;
+    max-height: 30px;
+    border-radius: 5px;
+    transition: transform 0.05s ease;
+}
+
+#player {
+    background-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
+}
+
+#ai {
+    background-color: #FF3D00;
+    box-shadow: 0 0 10px rgba(255, 61, 0, 0.8);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    #player, #ai {
+        width: 4vw;
+        height: 4vw;
+        max-width: 20px;
+        max-height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+
+    #player, #ai {
+        width: 5vw;
+        height: 5vw;
+        max-width: 15px;
+        max-height: 15px;
+    }
+}

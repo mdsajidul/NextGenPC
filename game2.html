@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chase Game</title>
+    <link rel="stylesheet" href="game2.css">
+</head>
+<body>
+    <header>
+        <h1>AI Chase Game</h1>
+        <p>Use the arrow keys to escape from the AI!</p>
+        <div class="button-container">
+            <button id="restart-button" onclick="resetGame()" disabled>Restart Game</button>
+            <button id="pause-resume-button" onclick="togglePauseResume()">Pause</button>
+        </div>
+        <!-- Speed Control Slider -->
+        <div class="speed-control">
+            <label for="speed-slider">Speed:</label>
+            <input type="range" id="speed-slider" min="1" max="10" value="5" onchange="updateSpeed(this.value)">
+        </div>
+    </header>
+    <div id="game-area">
+        <div id="player"></div>
+        <div id="ai"></div>
+    </div>
+    <script src="game2.js"></script>
+</body>
+</html>
