@@ -1,9 +1,10 @@
 // service-worker.js
 
-const filesToCache = [
-    '/', // মূল পেজ
+const CACHE_NAME = 'offline-cache-v1'; // Cache name
+const FILES_TO_CACHE = [
+    '/',
     '/index.html',
-    '/styles.css',
+    '/style.css',
     '/script.js',
     '/manifest.json',
     '/icon.png',
@@ -45,31 +46,52 @@ const filesToCache = [
     '/submit.js'
 ];
 
-// Install event to cache all the files
+// Install event - Cache all files
 self.addEventListener('install', (event) => {
     event.waitUntil(
-        caches.open('my-cache').then((cache) => {
-            console.log('Caching files...');
-            return cache.addAll(filesToCache);  // ক্যাশে ফাইল গুলি রাখা
-        })
+        caches.open(CACHE_NAME)
+            .then((cache) => {
+                console.log('Files are being cached');
+                return cache.addAll(FILES_TO_CACHE); // Add all files to the cache
+            })
     );
 });
 
-// Fetch event to serve cached files or fetch from network
+// Fetch event - Serve files from cache if available, or fetch from network
 self.addEventListener('fetch', (event) => {
     event.respondWith(
-        caches.match(event.request).then((cachedResponse) => {
-            return cachedResponse || fetch(event.request);
-        })
+        caches.match(event.request)
+            .then((cachedResponse) => {
+                return cachedResponse || fetch(event.request);
+            })
     );
 });
 
-// Listen to message to cache files on demand
+// Activate event - Clean up old caches
+self.addEventListener('activate', (event) => {
+    const cacheWhitelist = [CACHE_NAME]; // Only keep the latest cache
+    event.waitUntil(
+        caches.keys()
+            .then((cacheNames) => {
+                return Promise.all(
+                    cacheNames.map((cacheName) => {
+                        if (!cacheWhitelist.includes(cacheName)) {
+                            return caches.delete(cacheName); // Remove old caches
+                        }
+                    })
+                );
+            })
+    );
+});
+
+// Listen for messages from the main page (for manual caching)
 self.addEventListener('message', (event) => {
     if (event.data.action === 'cacheFiles') {
-        caches.open('my-cache').then((cache) => {
-            console.log('Caching files on demand...');
-            return cache.addAll(filesToCache);
-        });
+        caches.open(CACHE_NAME)
+            .then((cache) => {
+                cache.addAll(FILES_TO_CACHE);
+                console.log('All files are now cached.');
+            })
+            .catch((err) => console.error('Error caching files: ', err));
     }
 });
