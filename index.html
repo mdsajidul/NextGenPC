@@ -75,7 +75,7 @@
 
         // Add event listener to the offline button
         document.getElementById('offlineButton').addEventListener('click', () => {
-            // Force the service worker to install and cache the files again
+            // Force the service worker to cache all files
             if (navigator.serviceWorker.controller) {
                 navigator.serviceWorker.controller.postMessage({ action: 'cacheFiles' });
                 alert('All files are now available offline!');
