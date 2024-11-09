@@ -1,6 +1,5 @@
 // service-worker.js
 
-// ক্যাশে ফাইলগুলি রাখার সময়
 const filesToCache = [
     '/', // মূল পেজ
     '/index.html',
@@ -46,21 +45,31 @@ const filesToCache = [
     '/submit.js'
 ];
 
-// Install event
+// Install event to cache all the files
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open('my-cache').then((cache) => {
-            console.log('Caching all essential files');
+            console.log('Caching files...');
             return cache.addAll(filesToCache);  // ক্যাশে ফাইল গুলি রাখা
         })
     );
 });
 
-// Fetch event to serve files from cache
+// Fetch event to serve cached files or fetch from network
 self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request).then((cachedResponse) => {
             return cachedResponse || fetch(event.request);
         })
     );
+});
+
+// Listen to message to cache files on demand
+self.addEventListener('message', (event) => {
+    if (event.data.action === 'cacheFiles') {
+        caches.open('my-cache').then((cache) => {
+            console.log('Caching files on demand...');
+            return cache.addAll(filesToCache);
+        });
+    }
 });
