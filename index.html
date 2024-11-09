@@ -10,7 +10,7 @@
     <link rel="manifest" href="/manifest.json"> <!-- Link to the manifest file for PWA -->
     <link rel="icon" href="icon.png"> <!-- Favicon -->
     <script src="script.js" defer></script> <!-- Link to JavaScript file -->
-    <script defer src="theme-switcher.js"></script> <!-- Theme switcher script if used -->
+    <script defer src="theme-switcher.js"></script> <!-- Optional theme switcher script -->
 </head>
 
 <body>
@@ -50,6 +50,11 @@
         </div>
     </section>
 
+    <section class="notice-section">
+        <h2>Notice</h2>
+        <p id="notice">Loading notice...</p>
+    </section>
+
     <script>
         // Register the service worker
         if ('serviceWorker' in navigator) {
@@ -59,7 +64,7 @@
                         console.log('Service Worker registered with scope:', registration.scope);
                     })
                     .catch((error) => {
-                        console.log('Service Worker registration failed:', error);
+                        console.error('Service Worker registration failed:', error);
                     });
             });
         }
