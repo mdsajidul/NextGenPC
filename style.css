@@ -166,3 +166,8 @@ nav ul {
     .hover-effect:hover {
         color: var(--highlight-color); /* Change color on hover */
     }
+
+.notice-section{
+    justify-content: center;
+    align-items: center;
+}
