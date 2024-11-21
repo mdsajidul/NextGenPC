@@ -167,7 +167,10 @@ nav ul {
         color: var(--highlight-color); /* Change color on hover */
     }
 
-.notice-section{
-    justify-content: center;
-    align-items: center;
+.notice-section {
+  display: flex;
+  justify-content: center; /* Horizontal alignment */
+  align-items: center;    /* Vertical alignment */
+  height: 100vh;          /* Ensures it takes up the full viewport height */
 }
+
