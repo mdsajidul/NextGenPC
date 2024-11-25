@@ -1,80 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Future Technology, Bangladesh</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to the main CSS file -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <link rel="manifest" href="/manifest.json"> <!-- Link to the manifest file for PWA -->
-    <link rel="icon" href="icon.png"> <!-- Favicon -->
-    <script src="script.js" defer></script> <!-- Link to JavaScript file -->
-    <script defer src="theme-switcher.js"></script> <!-- Optional theme switcher script -->
+    <title>Your Business Services</title>
+    <link rel="stylesheet" href="marketplace.css">
 </head>
-
 <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-
-    <header>
-        <div class="header">
-            <nav id="main-nav">
-                <ul>
-                    <li><a href="profile.html" class="btn">Profile</a></li>
-                    <li><a href="https://wa.me/1745897322" class="btn" target="_blank">WhatsApp</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header class="header">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="intro">
-        <div class="container">
-            <h1 class="hover-effect">Future Tech Bangladesh</h1>
-            <p>সব টুলস এক জায়গায় – সহজ এবং কার্যকর।</p>
-            <div class="btn-container">
-                <a href="https://mdsajidul.github.io/Design/" class="btn">কাস্টমাইজ ডিজাইন</a>
-                <a href="https://mdsajidul.github.io/Books/" class="btn">আমাদের বই সমূহ</a>
-                <a href="https://mdsajidul.github.io/Streaming/" class="btn">ইসলামিক ভিডিও</a>
-                <a href="lesson1.html" class="btn">টাইপিং</a>
-                <a href="quiz-home.html" class="btn">কুইজ</a>
-                <a href="game-home.html" class="btn">গেমস</a>
-                <a href="back-to-islam.html" class="btn">হাদিস</a>
-                <a href="bmi.html" class="btn">BMI নির্নয়</a>
-                <a href="bmx.html" class="btn">BMX নির্নয়</a>
-                <a href="age.html" class="btn">বয়স নির্নয়</a>
-                <a href="word-counter.html" class="btn">Word Counter</a>
-                <a href="ikigai.html" class="btn">জীবনের উদ্দেশ্য</a>
-                <a href="emi.html" class="btn">EMI ক্যালকুলাটর</a>
-                <a href="submit.html" class="btn">আপনার মতামত</a>
-                
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Our Design Services</h2>
+            <p>Your one-stop solution for premium business designs.</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for designs...">
+                <button>Search</button>
             </div>
         </div>
     </section>
 
-    <script>
-        // Check if service worker is available
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then((registration) => {
-                        console.log('Service Worker registered with scope:', registration.scope);
-                    })
-                    .catch((error) => {
-                        console.error('Service Worker registration failed:', error);
-                    });
-            });
-        }
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Business Card</h3>
+                <p>Get a premium business card design to elevate your professional image.</p>
+                <button onclick="location.href='business-card.html'">Next</button>
+            </div>
+            <div class="service-card">
+                <h3>CV</h3>
+                <p>Craft a stunning CV that stands out to employers.</p>
+                <button onclick="location.href='cv.html'">Next</button>
+            </div>
+            <div class="service-card">
+                <h3>Website Theme</h3>
+                <p>Design a beautiful website theme for your business.</p>
+                <button onclick="location.href='website-theme.html'">Next</button>
+            </div>
+        </div>
+    </section>
 
-        // Add event listener to the offline button
-        document.getElementById('offlineButton').addEventListener('click', () => {
-            // Force the service worker to cache all files
-            if (navigator.serviceWorker.controller) {
-                navigator.serviceWorker.controller.postMessage({ action: 'cacheFiles' });
-                alert('All files are now available offline!');
-            }
-        });
-    </script>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are dedicated to providing top-notch design services to help you succeed in your business endeavors.</p>
+    </section>
 
+    <footer>
+        <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
+    </footer>
 </body>
-
 </html>
