@@ -1,201 +1,167 @@
-/* General Reset */
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* CSS Variables for Consistency */
+:root {
+    --primary-bg: #333;
+    --secondary-bg: #444;
+    --text-color: #f5f5f5;
+    --highlight-color: #d4af37;
+    --header-bg: linear-gradient(135deg, #1f1f1f, #3b3b3b);
+}
+
+/* General Styles */
 body {
-    font-family: 'Georgia', serif; /* Elegant serif font */
-    line-height: 1.6; /* Improved line height for readability */
-    background-color: #ffffff; /* Clean white background */
-    color: #444; /* Dark text for contrast */
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    background: linear-gradient(to right, #0a0a0a, var(--primary-bg));
 }
 
-/* Header */
-.header {
-    background: linear-gradient(135deg, #001f3f, #001d3d); /* Dark navy gradient for sophistication */
-    color: #f0c040; /* Gold color for text */
-    padding: 30px 0;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+/* Header Styles */
+header {
+    background: var(--header-bg);
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    position: relative;
 }
 
-    .header nav ul {
-        list-style-type: none; /* Remove bullet points */
-        display: flex; /* Flexbox for horizontal layout */
-        justify-content: center; /* Center the navigation */
-    }
-
-        .header nav ul li {
-            margin: 0 30px; /* Space between menu items */
-        }
-
-    .header nav a {
-        color: #f0c040; /* Gold color for links */
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 1.2rem; /* Slightly larger font for emphasis */
-        transition: color 0.3s ease; /* Smooth color transition */
-    }
-
-        .header nav a:hover {
-            color: #e67e22; /* Darker gold on hover */
-        }
-
-/* Hero Section */
-.hero {
-    background-color: #001f3f; /* Dark navy background for elegance */
-    color: #ffffff; /* White text for contrast */
-    padding: 120px 20px; /* Ample padding for grand appearance */
-    text-align: center;
-}
-
-    .hero h2 {
-        font-size: 3rem; /* Larger title for emphasis */
-        margin-bottom: 15px;
-    }
-
-    .hero p {
-        font-size: 1.5rem; /* Increased size for readability */
-        margin-bottom: 30px;
-    }
-
-.search-bar {
+.header nav {
     display: flex;
-    justify-content: center; /* Center search elements */
+    justify-content: center;
+    align-items: center;
 }
 
-    .search-bar input {
-        padding: 15px;
-        border: 2px solid #f0c040; /* Gold border for input */
-        border-radius: 5px 0 0 5px; /* Rounded left corners */
-        font-size: 1.1rem; /* Larger font size */
-        width: 350px; /* Fixed width for consistency */
+nav ul {
+    list-style: none;
+    display: flex; /* Flexbox for horizontal alignment */
+    justify-content: center;
+    padding: 0;
+    flex-wrap: wrap; /* Allow wrapping for small screens */
+}
+
+    /* Header Button Styles */
+    nav ul li {
+        margin: 0 10px; /* Margin between buttons */
     }
 
-    .search-bar button {
-        padding: 15px 25px;
-        background-color: #f0c040; /* Gold button background */
-        color: #ffffff;
-        border: none;
-        border-radius: 0 5px 5px 0; /* Rounded right corners */
-        cursor: pointer;
-        font-size: 1.1rem; /* Larger button font */
-        transition: background-color 0.3s ease; /* Button hover effect */
+.btn {
+    display: flex; /* Flexbox for button content */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    width: 150px; /* Fixed width for all buttons */
+    height: 50px; /* Fixed height for all buttons */
+    padding: 10px; /* Padding inside buttons */
+    text-decoration: none;
+    background: linear-gradient(145deg, var(--primary-bg), var(--secondary-bg));
+    color: var(--text-color);
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    font-size: 1.1em;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+    /* Button Hover Effect */
+    .btn:hover {
+        background: linear-gradient(145deg, var(--secondary-bg), var(--primary-bg));
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 1);
+        color: var(--highlight-color);
     }
 
-        .search-bar button:hover {
-            background-color: #e67e22; /* Darker gold on hover */
-        }
-
-/* Services Section */
-#services {
-    padding: 60px 20px; /* Ample padding for elegance */
-    background-color: #f8f9fa; /* Light background for contrast */
+/* Intro Section */
+.intro {
+    padding: 80px 20px;
     text-align: center;
 }
 
-    #services h2 {
-        font-size: 2.5rem; /* Larger heading for prominence */
-        margin-bottom: 30px;
-        color: #001f3f; /* Darker navy for headings */
-    }
-
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid layout */
-    gap: 30px; /* Space between cards */
-}
-
-.service-card {
-    background: #ffffff; /* White card background */
-    border: 1px solid #ddd; /* Subtle border */
-    border-radius: 10px; /* More rounded corners for softness */
-    padding: 30px; /* More padding for content */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Elegant shadow */
-    transition: transform 0.3s ease; /* Card lift effect */
-}
-
-    .service-card:hover {
-        transform: translateY(-10px); /* Lift effect on hover */
-    }
-
-    .service-card h3 {
-        font-size: 1.8rem; /* Larger card titles */
-        margin-bottom: 15px;
-        color: #001f3f; /* Dark navy for titles */
-    }
-
-    .service-card p {
-        color: #666; /* Lighter text color for descriptions */
-        margin-bottom: 25px; /* Space below paragraphs */
-    }
-
-    /* Buttons */
-    .service-card button {
-        padding: 12px 25px; /* Button padding */
-        background-color: #001f3f; /* Dark navy button background */
-        color: #ffffff;
-        border: none;
-        border-radius: 5px; /* Rounded button corners */
-        cursor: pointer;
-        font-size: 1.1rem; /* Button font size */
-        transition: background-color 0.3s ease; /* Button hover effect */
-    }
-
-        .service-card button:hover {
-            background-color: #001d3d; /* Darker navy on hover */
-        }
-
-/* About Section */
-#about {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: #ffffff; /* White background for contrast */
-}
-
-    #about h2 {
-        font-size: 2.5rem; /* Larger heading */
+    .intro h1 {
+        font-size: 3em;
         margin-bottom: 20px;
-        color: #001f3f; /* Darker navy for headings */
+        color: var(--text-color);
+        text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8);
+        transition: color 0.3s ease, transform 0.3s ease;
     }
 
-    #about p {
-        color: #666; /* Lighter text for readability */
-        font-size: 1.2rem; /* Slightly larger font for paragraphs */
-        margin: 0 auto;
-        max-width: 800px; /* Limit paragraph width for readability */
+    .intro p {
+        font-size: 1.2em;
+        margin-bottom: 40px;
+        color: var(--text-color);
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
     }
 
-/* Footer */
-footer {
-    background: #001f3f; /* Dark navy footer */
-    color: #ffffff;
+.btn-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping in case of small screens */
+    gap: 10px; /* Space between buttons */
+    padding: 20px; /* Aesthetic padding */
+}
+
+.btn {
+    flex: 1 1 150px; /* Ensure buttons are flexible */
+    padding: 15px; /* Uniform padding for buttons */
     text-align: center;
-    padding: 30px 0; /* Increased padding for a prominent footer */
+    background: linear-gradient(145deg, var(--primary-bg), var(--secondary-bg));
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    font-size: 1.1em;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
-    footer p {
-        margin: 5px 0;
-        font-size: 0.9rem; /* Smaller text in footer */
-    }
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
 
-/* Media Queries for Responsive Design */
+::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #d4af37;
+    }
+/* Responsive Styles */
 @media (max-width: 768px) {
-    .hero h2 {
-        font-size: 2.5rem; /* Smaller title on mobile */
+    nav ul {
+        flex-direction: row; /* Maintain row layout for tablets and larger phones */
     }
 
-    .search-bar input {
-        width: 100%; /* Full width on mobile */
-    }
-
-    .service-card {
-        margin: 10px 0; /* Reduce card margin on small screens */
-    }
-
-    #about h2 {
-        font-size: 2rem; /* Smaller heading on mobile */
+    .btn {
+        flex: 1 1 auto; /* Ensure buttons are flexible */
+        margin: 5px; /* Margin for space between buttons */
+        min-width: 100px; /* Minimum width to prevent overlap */
     }
 }
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: row; /* Keep buttons in a single row */
+    }
+
+    .btn {
+        flex: 1 1 auto; /* Allow buttons to stretch while maintaining flexibility */
+        margin: 5px; /* Margin for space between buttons */
+    }
+}
+
+.hover-effect {
+    color: var(--text-color); /* Default text color */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+    .hover-effect:hover {
+        color: var(--highlight-color); /* Change color on hover */
+    }
