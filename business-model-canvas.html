@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ব্যবসা মডেল ক্যানভাস</title>
+    <link rel="stylesheet" href="business-model-canvas.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>ব্যবসা মডেল ক্যানভাস</h1>
+            <p>আপনার ব্যবসার মূল উপাদানগুলি পূরণ করুন এবং আপনার ব্যবসার মডেল তৈরি করুন।</p>
+        </header>
+
+        <div class="canvas">
+            <div class="section" id="customer-segments">
+                <h2>গ্রাহক সেগমেন্ট</h2>
+                <p>এখানে লিখুন, আপনি কাদের জন্য ব্যবসা শুরু করছেন?</p>
+                <textarea id="customer-text" placeholder="যেমন: ছাত্র, শিক্ষক, উদ্যোক্তা"></textarea>
+            </div>
+            <div class="section" id="value-propositions">
+                <h2>মূল্য প্রস্তাবনা</h2>
+                <p>এখানে লিখুন, আপনি গ্রাহকদের কী সেবা বা সুবিধা দেবেন?</p>
+                <textarea id="value-text" placeholder="যেমন: উচ্চমানের শিক্ষা, সাশ্রয়ী মূল্যে পণ্য"></textarea>
+            </div>
+            <div class="section" id="channels">
+                <h2>চ্যানেল</h2>
+                <p>এখানে লিখুন, আপনার ব্যবসাটি গ্রাহকদের কাছে কিভাবে পৌঁছাবে?</p>
+                <textarea id="channels-text" placeholder="যেমন: অনলাইন মার্কেটপ্লেস, সামাজিক মাধ্যম"></textarea>
+            </div>
+            <div class="section" id="customer-relationships">
+                <h2>গ্রাহক সম্পর্ক</h2>
+                <p>এখানে লিখুন, আপনি কিভাবে গ্রাহকদের সাথে সম্পর্ক গড়ে তুলবেন?</p>
+                <textarea id="customer-relations-text" placeholder="যেমন: গ্রাহক সহায়তা, ইমেইল মার্কেটিং"></textarea>
+            </div>
+            <div class="section" id="revenue-streams">
+                <h2>আয়ের উৎস</h2>
+                <p>এখানে লিখুন, আপনি কিভাবে আয় করবেন?</p>
+                <textarea id="revenue-text" placeholder="যেমন: পণ্য বিক্রি, সাবস্ক্রিপশন ফি"></textarea>
+            </div>
+            <div class="section" id="key-resources">
+                <h2>মূল সম্পদ</h2>
+                <p>এখানে লিখুন, আপনার ব্যবসার জন্য কোন সম্পদ প্রয়োজন?</p>
+                <textarea id="resources-text" placeholder="যেমন: প্রযুক্তি, কর্মী, নগদ"></textarea>
+            </div>
+            <div class="section" id="key-activities">
+                <h2>মূল কার্যকলাপ</h2>
+                <p>এখানে লিখুন, আপনার ব্যবসা চালানোর জন্য কী কী কাজ করতে হবে?</p>
+                <textarea id="activities-text" placeholder="যেমন: পণ্য উৎপাদন, গ্রাহক সেবা"></textarea>
+            </div>
+            <div class="section" id="key-partners">
+                <h2>মূল অংশীদার</h2>
+                <p>এখানে লিখুন, আপনার ব্যবসার জন্য কোন অংশীদারের সাহায্য প্রয়োজন?</p>
+                <textarea id="partners-text" placeholder="যেমন: সরবরাহকারী, পরিবেশক"></textarea>
+            </div>
+            <div class="section" id="cost-structure">
+                <h2>ব্যয়ের কাঠামো</h2>
+                <p>এখানে লিখুন, আপনার ব্যবসা চালানোর জন্য কোন খরচ আসবে?</p>
+                <textarea id="cost-text" placeholder="যেমন: উৎপাদন খরচ, কর্মী বেতন"></textarea>
+            </div>
+        </div>
+
+        <button id="clear-button" class="btn-clear">সব মুছে ফেলুন</button>
+    </div>
+
+    <script src="business-model-canvas.js"></script>
+</body>
+</html>

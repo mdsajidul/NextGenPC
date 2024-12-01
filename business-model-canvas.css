@@ -1,0 +1,157 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #f0f0f0; /* Light text */
+    line-height: 1.6;
+    margin: 0;
+    overflow-y: auto; /* Ensure vertical scroll is enabled */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 15px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #64b5f6; /* Light blue color for header */
+    font-weight: 700;
+    transition: color 0.5s ease-out, transform 0.3s ease-out; /* Smooth color and transform effect */
+}
+
+    h1:hover {
+        color: #bbdefb; /* Slightly lighter blue when hovered */
+        transform: scale(1.05); /* Slight scaling for a premium hover effect */
+    }
+
+.canvas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.section {
+    background-color: #1e1e1e; /* Dark section background */
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #333; /* Dark borders */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Smoother shadow */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth hover */
+}
+
+    .section:hover {
+        transform: translateY(-12px); /* Smooth lift effect */
+        box-shadow: 0 12px 18px rgba(0, 0, 0, 0.5); /* Deeper shadow on hover */
+    }
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #bbdefb; /* Light blue for section headings */
+    text-align: center;
+    transition: color 0.3s ease-out; /* Smooth color transition */
+}
+
+    h2:hover {
+        color: #64b5f6; /* Slight change in color on hover */
+    }
+
+p {
+    font-size: 1.2rem;
+    color: #b0bec5; /* Lighter text for descriptions */
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 160px;
+    padding: 14px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #333; /* Dark textarea background */
+    color: #fff; /* White text */
+    resize: none;
+    outline: none;
+    transition: border-color 0.4s ease-in-out, background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Smooth transitions */
+}
+
+    textarea:focus {
+        border-color: #64b5f6; /* Light blue border on focus */
+        background-color: #424242; /* Slightly lighter background on focus */
+        box-shadow: 0 0 10px rgba(100, 181, 246, 0.6); /* Subtle glow effect */
+    }
+
+/* New Premium Button Style */
+#clear-button {
+    margin-top: 25px;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    background-color: #4caf50; /* Elegant green color */
+    color: white;
+    border: none;
+    border-radius: 50px; /* Fully rounded corners for a soft, premium look */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+
+    /* Hover effect */
+    #clear-button:hover {
+        background-color: #388e3c; /* Darker green on hover */
+        transform: scale(1.05); /* Slight scaling effect on hover */
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25); /* Deeper shadow effect */
+    }
+
+    /* Focus effect */
+    #clear-button:focus {
+        outline: none;
+        box-shadow: 0 0 12px rgba(72, 185, 104, 0.7); /* Soft glow when focused */
+    }
+
+/* Customize scrollbar appearance */
+::-webkit-scrollbar {
+    width: 10px; /* Slightly thinner scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #1e1e1e; /* Dark background for the scrollbar track */
+    border-radius: 12px; /* More pronounced rounded corners */
+    margin: 4px; /* Add some margin to the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #64b5f6, #1976d2); /* Elegant gradient for the thumb */
+    border-radius: 12px; /* Rounded thumb */
+    border: 2px solid #1e1e1e; /* Dark border around the thumb for contrast */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, #bbdefb, #64b5f6); /* Lighter gradient on hover */
+        transform: scale(1.1); /* Slight scale effect on hover for interactivity */
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+    }
+
+::-webkit-scrollbar-button {
+    display: none; /* Hide the scrollbar buttons */
+}
+
+/* For Firefox */
+scrollbar-width: thin;
+scrollbar-color: #64b5f6 #1e1e1e; /* Thumb color and track color for Firefox */
