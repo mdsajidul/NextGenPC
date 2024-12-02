@@ -1,0 +1,123 @@
+/* Apply a smooth background gradient */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #ffcc00, #ff3366);
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+/* Container styling with a shadow and rounded corners */
+.container {
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent dark background */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 90%; /* Prevent the container from becoming too wide */
+    width: 400px;
+}
+
+/* Styling for the button */
+button {
+    padding: 25px 50px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+    background-color: #ff6600;
+    color: white;
+    font-weight: bold;
+    transition: all 0.4s ease;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+}
+
+/* Hover effect for the button */
+button:hover {
+    background-color: #ff3300;
+    transform: scale(1.1); /* Slightly increase size */
+    box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Add animation when the button moves */
+button.moving {
+    transition: all 0.3s ease;
+    position: absolute;
+    animation: moveButton 0.5s ease-in-out infinite alternate;
+}
+
+/* Button movement animation */
+@keyframes moveButton {
+    0% {
+        left: 10%;
+        top: 10%;
+    }
+    25% {
+        left: 50%;
+        top: 20%;
+    }
+    50% {
+        left: 80%;
+        top: 40%;
+    }
+    75% {
+        left: 30%;
+        top: 60%;
+    }
+    100% {
+        left: 10%;
+        top: 80%;
+    }
+}
+
+/* Media queries for responsiveness */
+
+/* For tablets and smaller devices (portrait) */
+@media (max-width: 768px) {
+    body {
+        background: linear-gradient(45deg, #ff3366, #ffcc00);
+    }
+
+    .container {
+        padding: 30px;
+        width: 80%;
+        max-width: 350px;
+    }
+
+    button {
+        padding: 20px 40px;
+        font-size: 20px;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+    body {
+        background: linear-gradient(45deg, #ff6600, #ff3366);
+    }
+
+    .container {
+        padding: 20px;
+        width: 90%;
+        max-width: 300px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+}
+
+
