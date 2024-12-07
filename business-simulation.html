@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Simulation Game</title>
+    <link rel="stylesheet" href="business-simulation.css">
+</head>
+<body>
+<div id="notification" class="notification"></div> <!-- Notification bar -->
+
+<div class="container">
+    <div class="game-info">
+        <div class="info-item">
+            <p><strong>অর্থ:</strong> <span id="money">2000</span> টাকা</p>
+        </div>
+        <div class="info-item">
+            <p><strong>ফসল:</strong> <span id="crops">0</span> কেজি</p>
+        </div>
+        <div class="info-item">
+            <p><strong>উৎপাদন হার:</strong> <span id="rate">1</span> কেজি/ক্লিক</p>
+        </div>
+        <div class="info-item">
+            <p><strong>ফসলের বিক্রয়মূল্য:</strong> <span id="cropPrice">30</span> টাকা/কেজি</p>
+        </div>
+        <div class="info-item">
+            <p><strong>জমির দাম:</strong> <span id="landCost">10000</span> টাকা</p>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button id="harvest">ফসল সংগ্রহ করুন</button>
+        <button id="sell" disabled>ফসল বিক্রয় করুন</button>
+        <button id="buyLand" disabled>নতুন জমি কিনুন</button>
+        <button id="buyEquipment">উন্নত সরঞ্জাম কিনুন - 3000 টাকা</button>
+        <!--  <button id="toggleSeason">মৌসুম পরিবর্তন করুন</button> -->
+        <button id="showInstructionsBtn">গেমের নিয়ম জানুন</button>
+    </div>
+</div>
+
+<!-- Modal for instructions -->
+<div id="instructionsModal" class="modal">
+    <div class="modal-content">
+        <span id="closeModalBtn" class="close">&times;</span>
+        <h2>গেমের নিয়ম</h2>
+        <p>এই গেমে আপনি ফসল চাষ করবেন এবং সেই ফসল বিক্রি করে টাকা উপার্জন করবেন।...</p>
+        <p>নতুন জমি কিনে আপনার উৎপাদন হার বৃদ্ধি করতে পারেন।</p>
+        <p>এছাড়া উন্নত সরঞ্জাম কিনে আপনার উৎপাদন আরও দ্রুত বাড়াতে পারবেন।</p>
+    </div>
+</div>
+
+<script src="business-simulation.js"></script>
+</body>
+</html>
